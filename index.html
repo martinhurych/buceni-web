@@ -586,6 +586,39 @@
                 image-rendering: crisp-edges;
                 max-width: 100%;
             }
+
+            .artists-list,
+            .artist-content,
+            .section-content {
+                padding: 22px;
+                border-radius: 20px;
+            }
+
+            .home-shell {
+                margin-top: 148px;
+                padding: 0 12px;
+            }
+
+            .home-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .home-hero-card {
+                min-height: 470px;
+            }
+
+            .home-hero-content {
+                padding: 24px;
+            }
+
+            .hero-actions {
+                gap: 8px;
+            }
+
+            .section-jump {
+                font-size: 16px;
+                width: 100%;
+            }
         }
 
         /* Optimized Animation Classes */
@@ -642,6 +675,238 @@
             50% { transform: translate(15vw, 85vh) rotate(180deg); }
             75% { transform: translate(75vw, 70vh) rotate(270deg); }
             100% { transform: translate(-100px, 20vh) rotate(360deg); }
+        }
+
+        :root {
+            --brand-magenta: #ad0b68;
+            --brand-magenta-dark: #7d0448;
+            --brand-yellow: #f6db1f;
+            --brand-ink: #1f1a1d;
+            --panel-bg: rgba(255, 255, 255, 0.84);
+            --panel-border: rgba(173, 11, 104, 0.24);
+        }
+
+        body {
+            background:
+                radial-gradient(circle at 12% 18%, rgba(173, 11, 104, 0.24), transparent 40%),
+                radial-gradient(circle at 86% 10%, rgba(246, 219, 31, 0.24), transparent 35%),
+                linear-gradient(165deg, #e7e9ec 0%, #dfdee3 45%, #d4d5dd 100%);
+            color: var(--brand-ink);
+        }
+
+        .navigation {
+            background: rgba(255, 255, 255, 0.78);
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid var(--panel-border);
+            box-shadow: 0 10px 26px rgba(34, 18, 30, 0.14);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+        }
+
+        .nav-menu {
+            gap: 22px;
+            font-size: 21px;
+        }
+
+        .nav-item {
+            color: var(--brand-ink);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 3px;
+        }
+
+        .nav-item:hover,
+        .nav-item.active,
+        .fullscreen-nav span.active,
+        .fullscreen-nav span:hover {
+            color: var(--brand-magenta);
+        }
+
+        .hamburger span {
+            background-color: var(--brand-magenta);
+        }
+
+        .main-content {
+            padding-top: 140px;
+        }
+
+        .artists-list,
+        .artist-content,
+        .section-content {
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 24px;
+            box-shadow: 0 12px 32px rgba(23, 14, 20, 0.12);
+            padding: 30px;
+        }
+
+        .artist-title,
+        .artist-name,
+        .artist-link,
+        .archive-link,
+        .info-text,
+        .time-green {
+            color: var(--brand-magenta);
+        }
+
+        .artist-name:hover,
+        .artist-link:hover,
+        .archive-link:hover,
+        .info-text a:hover {
+            color: var(--brand-magenta-dark);
+        }
+
+        .artist-text,
+        .section-text {
+            color: #433741;
+            line-height: 1.72;
+        }
+
+        .back-button,
+        .ticket-button {
+            background: linear-gradient(135deg, var(--brand-magenta), var(--brand-magenta-dark));
+            border-radius: 999px;
+        }
+
+        .back-button:hover,
+        .ticket-button:hover {
+            background: linear-gradient(135deg, var(--brand-magenta-dark), #560431);
+        }
+
+        .home-shell {
+            max-width: 1250px;
+            margin: 140px auto 50px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 30;
+        }
+
+        .home-grid {
+            display: grid;
+            grid-template-columns: minmax(300px, 1.2fr) minmax(260px, 0.8fr);
+            gap: 20px;
+            align-items: stretch;
+        }
+
+        .home-hero-card {
+            position: relative;
+            min-height: 520px;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 18px 38px rgba(30, 8, 21, 0.25);
+            background: #130911;
+        }
+
+        .home-hero-art {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(120deg, rgba(18, 7, 13, 0.28), rgba(18, 7, 13, 0.6)), url('grafika/1080x1350-3.jpg');
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.03);
+        }
+
+        .home-hero-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 34px;
+            color: #fff;
+        }
+
+        .hero-kicker {
+            font-size: 15px;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            color: var(--brand-yellow);
+        }
+
+        .hero-title {
+            font-size: clamp(38px, 7vw, 76px);
+            line-height: 0.95;
+            margin: 14px 0;
+            max-width: 7ch;
+            text-transform: uppercase;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(18px, 2.4vw, 30px);
+            max-width: 20ch;
+            line-height: 1.12;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .section-jump {
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.34);
+            border-radius: 999px;
+            padding: 10px 16px;
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            font-family: 'CalibreRegular', Arial, sans-serif;
+            font-size: 18px;
+            transition: transform 0.15s ease, background 0.15s ease;
+        }
+
+        .section-jump:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.22);
+        }
+
+        .section-jump.primary {
+            color: var(--brand-ink);
+            background: var(--brand-yellow);
+            border-color: rgba(0, 0, 0, 0.08);
+        }
+
+        .home-media-card {
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 24px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            box-shadow: 0 14px 26px rgba(23, 14, 20, 0.14);
+        }
+
+        .home-media-title {
+            font-size: 24px;
+            color: var(--brand-magenta);
+        }
+
+        .home-media-text {
+            font-size: 17px;
+            line-height: 1.35;
+            color: #473a45;
+        }
+
+        .teaser-video {
+            width: 100%;
+            border-radius: 16px;
+            background: #000;
+            border: 1px solid rgba(125, 4, 72, 0.24);
+            object-fit: cover;
+            aspect-ratio: 4 / 5;
+        }
+
+        .home-scaffold {
+            width: 100%;
+            border-radius: 16px;
+            border: 1px dashed rgba(173, 11, 104, 0.45);
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.62);
+            font-size: 15px;
+            color: #5c3550;
         }
     </style>
     <script defer data-domain="buceni.prespolni.org" src="https://plausible.chararray.cz/js/script.file-downloads.hash.outbound-links.js"></script>
@@ -714,7 +979,34 @@
 
     <!-- HOME SECTION -->
     <section id="home" class="page-section active">
-        <!-- Just the floating animations background -->
+        <main class="home-shell">
+            <div class="home-grid">
+                <article class="home-hero-card">
+                    <div class="home-hero-art"></div>
+                    <div class="home-hero-content">
+                        <div>
+                            <p class="hero-kicker">Bučení 9 · July 31, 2026</p>
+                            <h1 class="hero-title">Buceni Festival</h1>
+                            <p class="hero-subtitle">Experimental electronic music and audio-visual art in Lubna u Policky.</p>
+                        </div>
+                        <div class="hero-actions">
+                            <button class="section-jump primary" data-section="artists">Explore Artists</button>
+                            <button class="section-jump" data-section="timetable">Timetable</button>
+                            <button class="section-jump" data-section="tickets">Tickets</button>
+                            <button class="section-jump" data-section="info">Info</button>
+                        </div>
+                    </div>
+                </article>
+                <aside class="home-media-card">
+                    <h2 class="home-media-title">Festival Teaser</h2>
+                    <p class="home-media-text">First redesign preview uses your uploaded campaign video and keeps current sections intact.</p>
+                    <video class="teaser-video" autoplay muted loop playsinline controls poster="grafika/1080x1350-1.jpg">
+                        <source src="grafika/1080x1350_Buceni26-teaser.mp4" type="video/mp4">
+                    </video>
+                    <div class="home-scaffold">Poster direction: magenta + yellow contrast, collage geometry, and technical scaffold lines.</div>
+                </aside>
+            </div>
+        </main>
     </section>
 
     <!-- ARTISTS SECTION -->
@@ -1512,6 +1804,14 @@
             
             // Desktop navigation
             document.querySelectorAll('.nav-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    const section = this.dataset.section;
+                    showSection(section);
+                });
+            });
+
+            // Home hero quick actions
+            document.querySelectorAll('.section-jump[data-section]').forEach(item => {
                 item.addEventListener('click', function() {
                     const section = this.dataset.section;
                     showSection(section);
