@@ -5,32 +5,479 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BUCENI</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --menu-bg: rgba(0, 0, 0, 0.88);
+      --menu-text: #f6db1f;
+      --menu-line: rgba(246, 219, 31, 0.32);
+      --tile-size: 520px;
+      --white: #f1f1f1;
+      --yellow: #f6db1f;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       min-height: 100vh;
-      background: #d7d7d7;
+      background: #b8bbba;
+      padding: 16px;
+      overflow-x: hidden;
+      font-family: Calibre, 'Avenir Next', 'Segoe UI', Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .topbar {
+      position: relative;
+      z-index: 40;
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-left: auto;
+    }
+
+    .top-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .top-nav a {
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+      line-height: 1;
+      text-shadow: 0 1px 10px rgba(0, 0, 0, 0.45);
+    }
+
+    .top-nav a:hover {
+      color: var(--yellow);
+    }
+
+    .home-cta {
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
-      padding: 24px;
-      font-family: Arial, sans-serif;
+      width: clamp(102px, 10vw, 132px);
+      height: auto;
+      padding: 0;
+      text-decoration: none;
+      line-height: 0;
+      transition: transform 0.2s ease, filter 0.2s ease;
+      flex-shrink: 0;
     }
-    .wrap {
-      width: min(760px, 100%);
-      display: grid;
-      gap: 22px;
-    }
-    .wrap img {
+
+    .home-cta img {
+      display: block;
       width: 100%;
       height: auto;
+    }
+
+    .home-cta:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+    }
+
+    .info-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: clamp(114px, 11.6vw, 148px);
+      height: auto;
+      padding: 0;
+      text-decoration: none;
+      line-height: 0;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+    .info-cta img {
       display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .info-cta:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+    }
+
+    .menu-toggle {
+      width: 52px;
+      height: 52px;
+      border: 0;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.62);
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+      position: relative;
+    }
+
+    .menu-toggle span,
+    .menu-toggle::before,
+    .menu-toggle::after {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 3px;
+      background: var(--yellow);
+      border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      position: absolute;
+    }
+
+    .menu-toggle::before {
+      transform: translateY(-8px);
+    }
+
+    .menu-toggle::after {
+      transform: translateY(8px);
+    }
+
+    .menu-open .menu-toggle span {
+      opacity: 0;
+    }
+
+    .menu-open .menu-toggle::before {
+      transform: rotate(45deg);
+    }
+
+    .menu-open .menu-toggle::after {
+      transform: rotate(-45deg);
+    }
+
+    .hero {
+      position: relative;
+      z-index: 10;
+      display: grid;
+      justify-items: center;
+      min-height: 48vh;
+      align-content: start;
+      gap: 10px;
+      padding-top: 12px;
+    }
+
+    .site-header {
+      pointer-events: none;
+    }
+
+    .site-header img {
+      width: min(760px, 94vw);
+      height: auto;
+      display: block;
+    }
+
+    .artists-tba {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-top: 6px;
+    }
+
+    .artists-tba img {
+      width: min(360px, 62vw);
+      height: auto;
+      display: block;
+    }
+
+    .site-footer {
+      position: relative;
+      z-index: 25;
+      background: #d1c449;
+      margin: 0 -16px -16px;
+      padding: 18px 22px 20px;
+      font-family: Calibre, 'Avenir Next', 'Segoe UI', Arial, sans-serif;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      align-items: center;
+      justify-content: start;
+      width: min(760px, 100%);
+      margin: 0 auto;
+    }
+
+    .footer-col {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 20px;
+    }
+
+    .site-footer a {
+      color: #1f1f1f;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: clamp(1.05rem, 1.25vw, 1.35rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      text-shadow: none;
+    }
+
+    .site-footer a:hover {
+      color: #000000;
+    }
+
+    .footer-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.32em;
+      margin-top: 16px;
+      width: min(760px, 100%);
+      margin-left: auto;
+      margin-right: auto;
+      color: #1f1f1f;
+      background: transparent;
+      padding: 0;
+      font-size: clamp(1.05rem, 1.25vw, 1.35rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .footer-meta .accent {
+      color: #F6DB1F;
+    }
+
+    .menu-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(320px, 86vw);
+      height: 100vh;
+      background: var(--menu-bg);
+      transform: translateX(100%);
+      transition: transform 0.28s ease;
+      z-index: 60;
+      padding: 84px 22px 24px;
+    }
+
+    .menu-open .menu-panel {
+      transform: translateX(0);
+    }
+
+    .menu-panel nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .menu-panel a {
+      color: var(--menu-text);
+      text-decoration: none;
+      font-size: 1.2rem;
+      letter-spacing: 0.02em;
+      padding: 10px 4px;
+      border-bottom: 1px solid var(--menu-line);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .menu-panel a:hover {
+      opacity: 0.85;
+    }
+
+    .scrim {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      z-index: 55;
+    }
+
+    .menu-open .scrim {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    @media (max-width: 900px) {
+      :root {
+        --tile-size: 420px;
+      }
+
+      .top-nav {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .hero {
+        min-height: 40vh;
+      }
+
+      .info-cta {
+        width: clamp(104px, 24vw, 134px);
+      }
+
+      .home-cta {
+        width: clamp(92px, 22vw, 118px);
+      }
+    }
+
+    @media (max-width: 640px) {
+      :root {
+        --tile-size: 320px;
+      }
+
+      body {
+        padding: 12px;
+      }
+
+      .site-header img {
+        width: 96vw;
+      }
+
+      .artists-tba img {
+        width: min(300px, 82vw);
+      }
+
+      .site-footer {
+        margin: 0 -12px -12px;
+        padding: 16px 14px 16px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .site-footer a {
+        font-size: 0.96rem;
+      }
+
+      .footer-meta {
+        font-size: 0.96rem;
+        margin-top: 12px;
+        padding: 0;
+      }
+
+      .topbar-actions {
+        gap: 8px;
+      }
+
+      .info-cta {
+        width: clamp(96px, 26vw, 118px);
+      }
+
+      .home-cta {
+        width: clamp(84px, 24vw, 104px);
+      }
     }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <img src="grafika/1080x1350-1.jpg" alt="Buceni poster 1">
-    <img src="grafika/1080x1350-2.jpg" alt="Buceni poster 2">
+  <div class="topbar">
+    <a class="home-cta" href="index.html" aria-label="Domovska stranka">
+      <img src="images/button2_home.png" alt="Home">
+    </a>
+
+    <nav class="top-nav" aria-label="Primary">
+      <a href="#artists">Artists</a>
+      <a href="#timetable">Timetable</a>
+      <a href="tickets.html">Tickets</a>
+      <a href="archive.html">Archive</a>
+      <a href="info.html">Info</a>
+    </nav>
+
+    <div class="topbar-actions">
+      <a class="info-cta" href="info.html" aria-label="Info">
+        <img src="images/button.png" alt="Info">
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <main class="hero">
+    <header class="site-header">
+      <img src="images/header3.png" alt="Buceni header">
+    </header>
+    <div class="artists-tba" aria-hidden="true">
+      <img src="images/artists a timeble tba.png" alt="Artists info">
+    </div>
   </main>
+
+  <aside class="menu-panel" id="menuPanel" aria-hidden="true">
+    <nav>
+      <a href="#artists">Artists</a>
+      <a href="#timetable">Timetable</a>
+      <a href="tickets.html">Tickets</a>
+      <a href="archive.html">Archive</a>
+      <a href="info.html">Info</a>
+    </nav>
+  </aside>
+
+  <footer class="site-footer" id="contact">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="https://www.instagram.com/prespolnispolek/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/events/872892972502435?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22search%22%7D%2C%7B%22mechanism%22%3A%22attachment%22%2C%22surface%22%3A%22newsfeed%22%7D]%2C%22ref_notif_type%22%3Anull%7D" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.youtube.com/watch?v=FqBctNaumyg" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.prespolni.org/en/info" target="_blank" rel="noopener">Contact</a>
+      </div>
+    </div>
+    <span class="footer-meta">
+      <span>31.7.-1.8.</span><span class="accent">2026</span><a href="https://www.google.com/maps/place/P%C5%99espoln%C3%AD/@49.7714769,16.2159098,622m/data=!3m2!1e3!4b1!4m6!3m5!1s0x470d914beb683bcb:0x8a9102eb16dc626b!8m2!3d49.7714735!4d16.2184901!16s%2Fg%2F11hzwhftxf?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Lubná u Poličky</a><span class="accent">CZ</span>
+    </span>
+  </footer>
+
+  <div class="scrim" id="scrim"></div>
+
+  <script>
+    const body = document.body;
+    const toggle = document.getElementById('menuToggle');
+    const panel = document.getElementById('menuPanel');
+    const scrim = document.getElementById('scrim');
+
+    function setMenu(open) {
+      body.classList.toggle('menu-open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+    }
+
+    toggle.addEventListener('click', () => {
+      const isOpen = body.classList.contains('menu-open');
+      setMenu(!isOpen);
+    });
+
+    scrim.addEventListener('click', () => setMenu(false));
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setMenu(false);
+    });
+
+    panel.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => setMenu(false));
+    });
+  </script>
 </body>
 </html>

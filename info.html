@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BUCENI INFO</title>
+  <style>
+    :root {
+      --menu-bg: rgba(0, 0, 0, 0.88);
+      --menu-text: #f6db1f;
+      --menu-line: rgba(246, 219, 31, 0.32);
+      --white: #f1f1f1;
+      --yellow: #f6db1f;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #b8bbba;
+      padding: 16px;
+      overflow-x: hidden;
+      font-family: Calibre, 'Avenir Next', 'Segoe UI', Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    body.lightbox-open {
+      overflow: hidden;
+    }
+
+    .topbar {
+      position: relative;
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-left: auto;
+    }
+
+    .top-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .top-nav a {
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+      line-height: 1;
+      text-shadow: 0 1px 10px rgba(0, 0, 0, 0.45);
+    }
+
+    .top-nav a:hover,
+    .top-nav a.active {
+      color: var(--yellow);
+    }
+
+    .home-cta,
+    .info-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: clamp(102px, 10vw, 132px);
+      height: auto;
+      padding: 0;
+      text-decoration: none;
+      line-height: 0;
+      transition: transform 0.2s ease, filter 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .home-cta img,
+    .info-cta img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .home-cta:hover,
+    .info-cta:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+    }
+
+    .info-cta {
+      width: clamp(114px, 11.6vw, 148px);
+    }
+
+    .menu-toggle {
+      width: 52px;
+      height: 52px;
+      border: 0;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.62);
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+      position: relative;
+    }
+
+    .menu-toggle span,
+    .menu-toggle::before,
+    .menu-toggle::after {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 3px;
+      background: var(--yellow);
+      border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      position: absolute;
+    }
+
+    .menu-toggle::before {
+      transform: translateY(-8px);
+    }
+
+    .menu-toggle::after {
+      transform: translateY(8px);
+    }
+
+    .menu-open .menu-toggle span {
+      opacity: 0;
+    }
+
+    .menu-open .menu-toggle::before {
+      transform: rotate(45deg);
+    }
+
+    .menu-open .menu-toggle::after {
+      transform: rotate(-45deg);
+    }
+
+    .info-shell {
+      position: relative;
+      z-index: 20;
+      width: min(760px, 100%);
+      margin: 0 auto;
+      color: #474747;
+      font-family: Calibre, 'Avenir Next', 'Segoe UI', Arial, sans-serif;
+      font-size: clamp(1.05rem, 1.25vw, 1.35rem);
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    .info-shell p {
+      margin: 0 0 18px;
+      max-width: none;
+      font-weight: 400;
+    }
+
+    .info-intro {
+      margin: 0 0 22px;
+      font-size: clamp(1.45rem, 2.2vw, 2.05rem);
+      line-height: 1.28;
+      font-weight: 600;
+      color: #f1f1f1;
+    }
+
+    .info-intro .info-date-highlight {
+      font-weight: 700;
+    }
+
+    .info-intro a {
+      color: #A80053;
+      font-weight: 700;
+    }
+
+    .info-intro .info-strong-black {
+      color: #f6db1f;
+      font-weight: 700;
+    }
+
+    .info-date-highlight {
+      color: #A80053;
+      font-weight: 600;
+    }
+
+    .info-strong-black {
+      color: #000000;
+      font-weight: 700;
+    }
+
+    .info-shell a {
+      color: #000000;
+      text-decoration: underline;
+      text-underline-offset: 0.12em;
+      font-weight: 700;
+    }
+
+    .info-lead {
+      margin-bottom: 24px;
+      position: relative;
+      overflow: visible;
+    }
+
+    .info-lead a {
+      display: block;
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 7 / 5;
+      background: #111;
+    }
+
+    .lead-nav {
+      position: absolute;
+      top: 52%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(246, 219, 31, 0.9);
+      color: #121212;
+      font-size: 2.1rem;
+      line-height: 1;
+      font-weight: 700;
+      z-index: 1;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+      border: 0;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+    .lead-nav:hover {
+      transform: translateY(-50%) scale(1.03);
+      filter: brightness(1.02);
+    }
+
+    .lead-nav.prev {
+      left: -56px;
+    }
+
+    .lead-nav.next {
+      right: -56px;
+    }
+
+    .info-lead img {
+      width: 100%;
+      display: block;
+      height: 100%;
+      border: 0;
+      box-shadow: none;
+      object-fit: cover;
+      object-position: center center;
+      transform: none;
+    }
+
+    .info-shell strong {
+      font-weight: 600;
+    }
+
+    .info-shell em {
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    .info-shell h1 {
+      margin-bottom: 18px;
+      color: #474747;
+      text-transform: none;
+      letter-spacing: 0;
+      font-size: clamp(1.3rem, 1.8vw, 1.8rem);
+      line-height: 1.1;
+      font-weight: 600;
+    }
+
+    .info-map-block {
+      display: grid;
+      justify-items: center;
+      margin: 24px 0 18px;
+    }
+
+    .info-map-block figure,
+    .info-gallery figure {
+      margin: 0;
+    }
+
+    .info-map-block a {
+      display: block;
+    }
+
+    .info-map-block img {
+      width: 100%;
+      display: block;
+      height: auto;
+      border: 0;
+      box-shadow: none;
+    }
+
+    .info-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 22px;
+      margin-bottom: 28px;
+    }
+
+    .info-gallery a {
+      display: block;
+    }
+
+    .info-gallery a:hover img {
+      filter: brightness(1.03);
+    }
+
+    .info-gallery img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 1 / 0.9;
+      object-fit: cover;
+      border: 0;
+      box-shadow: none;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      background: rgba(0, 0, 0, 0.86);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 26px;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-stage {
+      width: min(1200px, 100%);
+      max-height: 100%;
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr) 56px;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .lightbox-image-wrap {
+      margin: 0;
+      display: grid;
+      justify-items: center;
+      max-height: calc(100vh - 92px);
+    }
+
+    .lightbox-image {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: calc(100vh - 92px);
+      object-fit: contain;
+      display: block;
+    }
+
+    .lightbox-close,
+    .lightbox-nav {
+      border: 0;
+      background: rgba(246, 219, 31, 0.9);
+      color: #121212;
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      cursor: pointer;
+      font: inherit;
+      font-size: 1.9rem;
+      line-height: 1;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+    .lightbox-nav {
+      width: 52px;
+      height: 52px;
+      font-size: 2.1rem;
+    }
+
+    .lightbox-nav.is-hidden {
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .lightbox-close:hover,
+    .lightbox-nav:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.03);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 2;
+      font-size: 1.6rem;
+      line-height: 0;
+      padding: 0;
+    }
+
+    .site-footer {
+      position: relative;
+      z-index: 25;
+      background: #d1c449;
+      margin: 0 -16px -16px;
+      padding: 18px 22px 20px;
+      font-family: Calibre, 'Avenir Next', 'Segoe UI', Arial, sans-serif;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      align-items: center;
+      justify-content: start;
+      width: min(760px, 100%);
+      margin: 0 auto;
+    }
+
+    .footer-col {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 20px;
+    }
+
+    .site-footer a {
+      color: #1f1f1f;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: clamp(1.05rem, 1.25vw, 1.35rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      text-shadow: none;
+    }
+
+    .site-footer a:hover {
+      color: #000000;
+    }
+
+    .footer-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.32em;
+      margin-top: 16px;
+      width: min(760px, 100%);
+      margin-left: auto;
+      margin-right: auto;
+      color: #1f1f1f;
+      background: transparent;
+      padding: 0;
+      font-size: clamp(1.05rem, 1.25vw, 1.35rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .footer-meta .accent {
+      color: #F6DB1F;
+    }
+
+    .menu-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(320px, 86vw);
+      height: 100vh;
+      background: var(--menu-bg);
+      transform: translateX(100%);
+      transition: transform 0.28s ease;
+      z-index: 60;
+      padding: 84px 22px 24px;
+    }
+
+    .menu-open .menu-panel {
+      transform: translateX(0);
+    }
+
+    .menu-panel nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .menu-panel a {
+      color: var(--menu-text);
+      text-decoration: none;
+      font-size: 1.2rem;
+      letter-spacing: 0.02em;
+      padding: 10px 4px;
+      border-bottom: 1px solid var(--menu-line);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .menu-panel a:hover {
+      opacity: 0.85;
+    }
+
+    .scrim {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      z-index: 55;
+    }
+
+    .menu-open .scrim {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    @media (max-width: 900px) {
+      .top-nav {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .info-shell {
+        width: 100%;
+      }
+
+      .info-cta,
+      .home-cta {
+        width: clamp(92px, 22vw, 118px);
+      }
+
+      .info-cta {
+        width: clamp(104px, 24vw, 134px);
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 12px;
+      }
+
+      .info-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .info-shell {
+        font-size: 1rem;
+      }
+
+      .info-map-block {
+        margin: 20px 0 16px;
+      }
+
+      .lead-nav {
+        top: 52%;
+        width: 42px;
+        height: 42px;
+        font-size: 1.75rem;
+      }
+
+      .lead-nav.prev {
+        left: -20px;
+      }
+
+      .lead-nav.next {
+        right: -20px;
+      }
+
+      .lightbox {
+        padding: 18px 8px;
+      }
+
+      .lightbox-stage {
+        grid-template-columns: 44px minmax(0, 1fr) 44px;
+        gap: 8px;
+      }
+
+      .lightbox-close,
+      .lightbox-nav {
+        width: 38px;
+        height: 38px;
+        font-size: 1.55rem;
+      }
+
+      .lightbox-nav {
+        width: 42px;
+        height: 42px;
+        font-size: 1.75rem;
+      }
+
+      .site-footer {
+        margin: 0 -12px -12px;
+        padding: 16px 14px 16px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .site-footer a,
+      .footer-meta {
+        font-size: 0.96rem;
+      }
+
+      .footer-meta {
+        margin-top: 12px;
+      }
+
+      .topbar-actions {
+        gap: 8px;
+      }
+
+      .info-cta,
+      .home-cta {
+        width: clamp(84px, 24vw, 104px);
+      }
+
+      .info-cta {
+        width: clamp(96px, 26vw, 118px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <a class="home-cta" href="index.html" aria-label="Domovska stranka">
+      <img src="images/button2_home.png" alt="Home">
+    </a>
+
+    <nav class="top-nav" aria-label="Primary">
+      <a href="index.html#artists">Artists</a>
+      <a href="index.html#timetable">Timetable</a>
+      <a href="tickets.html">Tickets</a>
+      <a href="archive.html">Archive</a>
+      <a class="active" href="info.html">Info</a>
+    </nav>
+
+    <div class="topbar-actions">
+      <a class="info-cta" href="info.html#info" aria-label="Info">
+        <img src="images/button.png" alt="Info">
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <main class="info-shell" id="info" aria-label="Festival information">
+    <p class="info-intro">Bu&#269;en&#237; returns for its ninth edition on <span class="info-date-highlight">31 July - 1 August 2026</span>, at <a href="https://www.google.com/maps/place/P%C5%99espoln%C3%AD/@49.7714735,16.2184901,17z/data=!3m1!4b1!4m5!3m4!1s0x470d914beb683bcb:0x8a9102eb16dc626b!8m2!3d49.7714735!4d16.2184901" target="_blank" rel="noopener">P&#345;espoln&#237; in Lubn&#225; u Poli&#269;ky</a>, Czech Republic - <span class="info-strong-black">two days of experimental electronic music and audio-visual art</span>.</p>
+
+    <div class="info-lead">
+      <button class="lead-nav prev" id="leadPrev" aria-label="Previous image">&#8249;</button>
+      <a href="images/info_galerie1/1.jpg" id="leadViewer" aria-label="Open main gallery">
+        <img src="images/info_galerie1/1.jpg" alt="Buceni main gallery image" id="leadImage">
+      </a>
+      <button class="lead-nav next" id="leadNext" aria-label="Next image">&#8250;</button>
+    </div>
+
+    <div class="info-map-block">
+      <figure>
+        <a href="images/info/map buceni_large.jpg" id="mapViewer" data-map-gallery-item aria-label="Open map image">
+          <img src="images/info/map buceni_large.jpg" alt="Map of Lubna and Bu&#269;en&#237; venue">
+        </a>
+      </figure>
+    </div>
+
+    <p>You can get to the festival by train or bus. Train connections go to the stations &#268;esk&#225; T&#345;ebov&#225; or Poli&#269;ka. From there you have to take a bus to Lubn&#225;. The bus stop in Lubn&#225; is called Obecn&#237; &#250;&#345;ad (the municipality office), and from there you can walk to P&#345;espoln&#237; and the festival Bu&#269;en&#237;.</p>
+
+    <p>Train and bus connections can be found at <a href="https://idos.idnes.cz/en/vlakyautobusymhdvse/spojeni/" target="_blank" rel="noopener">this link</a>.</p>
+
+    <p>Visitors have the option to camp or sleep outside under the stars (bring your own gear). There will be a kitchen with plant-based options and a bar.</p>
+
+    <div class="info-gallery" aria-label="Area images">
+      <a href="images/info/map buceni_medium.jpg" data-map-gallery-item>
+        <figure>
+          <img src="images/info/map buceni_medium.jpg" alt="Map of Lubna and Bučeni venue">
+        </figure>
+      </a>
+      <a href="images/info/map buceni_small.jpg" data-map-gallery-item>
+        <figure>
+          <img src="images/info/map buceni_small.jpg" alt="Map of Lubna and Bučeni venue">
+        </figure>
+      </a>
+      <a href="images/info/8.jpg" data-map-gallery-item>
+        <figure>
+          <img src="images/info/8.jpg" alt="Bučeni site installation">
+        </figure>
+      </a>
+    </div>
+
+    <p>Bu&#269;en&#237; is organised by the P&#345;espoln&#237; association based in the Czech countryside. Since 2017, P&#345;espoln&#237; has been organising exhibitions, residencies, Bu&#269;en&#237; festival, and cultural and educational programmes. The festival is supported by the Czech Ministry of Culture, the State Fund of Culture, the Pardubice Region, the Visegrad Fund, and the municipality of Lubn&#225;.</p>
+
+  </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image gallery" aria-modal="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close gallery">&times;</button>
+    <div class="lightbox-stage">
+      <button class="lightbox-nav" id="lightboxPrev" aria-label="Previous image">&#8249;</button>
+      <figure class="lightbox-image-wrap">
+        <img class="lightbox-image" id="lightboxImage" src="" alt="">
+      </figure>
+      <button class="lightbox-nav" id="lightboxNext" aria-label="Next image">&#8250;</button>
+    </div>
+  </div>
+
+  <aside class="menu-panel" id="menuPanel" aria-hidden="true">
+    <nav>
+      <a href="index.html#artists">Artists</a>
+      <a href="index.html#timetable">Timetable</a>
+      <a href="tickets.html">Tickets</a>
+      <a href="archive.html">Archive</a>
+      <a href="info.html">Info</a>
+    </nav>
+  </aside>
+
+  <footer class="site-footer" id="contact">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="https://www.instagram.com/prespolnispolek/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/events/872892972502435?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22search%22%7D%2C%7B%22mechanism%22%3A%22attachment%22%2C%22surface%22%3A%22newsfeed%22%7D]%2C%22ref_notif_type%22%3Anull%7D" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.youtube.com/watch?v=FqBctNaumyg" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.prespolni.org/en/info" target="_blank" rel="noopener">Contact</a>
+      </div>
+    </div>
+    <span class="footer-meta">
+      <span>31.7.-1.8.</span><span class="accent">2026</span><a href="https://www.google.com/maps/place/P%C5%99espoln%C3%AD/@49.7714769,16.2159098,622m/data=!3m2!1e3!4b1!4m6!3m5!1s0x470d914beb683bcb:0x8a9102eb16dc626b!8m2!3d49.7714735!4d16.2184901!16s%2Fg%2F11hzwhftxf?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Lubná u Poličky</a><span class="accent">CZ</span>
+    </span>
+  </footer>
+
+  <div class="scrim" id="scrim"></div>
+
+  <script>
+    const body = document.body;
+    const toggle = document.getElementById('menuToggle');
+    const panel = document.getElementById('menuPanel');
+    const scrim = document.getElementById('scrim');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+    const leadViewer = document.getElementById('leadViewer');
+    const mapViewer = document.getElementById('mapViewer');
+    const mapGalleryLinks = Array.from(document.querySelectorAll('[data-map-gallery-item]'));
+    const leadImage = document.getElementById('leadImage');
+    const leadPrev = document.getElementById('leadPrev');
+    const leadNext = document.getElementById('leadNext');
+    const galleryItems = [
+      { src: 'images/info_galerie1/1.jpg', alt: 'Buceni main gallery image 1', leadPosition: 'center 66%' },
+      { src: 'images/info_galerie1/2.jpg', alt: 'Buceni main gallery image 2' },
+      { src: 'images/info_galerie1/6.jpg', alt: 'Buceni main gallery image 3' },
+      { src: 'images/info_galerie1/7.jpg', alt: 'Buceni main gallery image 4' },
+      { src: 'images/info_galerie1/A08.jpg', alt: 'Buceni main gallery image 5' },
+      { src: 'images/info_galerie1/A09.jpg', alt: 'Buceni main gallery image 6' },
+      { src: 'images/info_galerie1/A10.jpg', alt: 'Buceni main gallery image 7' },
+      { src: 'images/info_galerie1/A15.jpg', alt: 'Buceni main gallery image 8' },
+      { src: 'images/info_galerie1/A18.jpg', alt: 'Buceni main gallery image 9' },
+      { src: 'images/info_galerie1/B01.jpg', alt: 'Buceni main gallery image 10' },
+      { src: 'images/info_galerie1/B06.jpg', alt: 'Buceni main gallery image 11' },
+      { src: 'images/info_galerie1/B07.jpg', alt: 'Buceni main gallery image 12' },
+      { src: 'images/info_galerie1/B11.jpg', alt: 'Buceni main gallery image 13' },
+      { src: 'images/info_galerie1/B20.jpg', alt: 'Buceni main gallery image 14' }
+    ];
+    const mapGalleryItems = mapGalleryLinks.map((link) => {
+      const thumb = link.querySelector('img');
+      return {
+        src: link.getAttribute('href'),
+        alt: thumb ? thumb.alt : 'Map gallery image'
+      };
+    });
+    let leadGalleryIndex = 0;
+    let lightboxGalleryIndex = 0;
+    let activeLightboxItems = galleryItems;
+
+    function setLeadImage(index) {
+      if (!galleryItems.length) return;
+      const safeIndex = (index + galleryItems.length) % galleryItems.length;
+      const item = galleryItems[safeIndex];
+
+      leadGalleryIndex = safeIndex;
+      leadViewer.setAttribute('href', item.src);
+      leadImage.src = item.src;
+      leadImage.alt = item.alt;
+      leadImage.style.objectPosition = item.leadPosition || 'center center';
+    }
+
+    function setLightboxImage(index) {
+      if (!activeLightboxItems.length) return;
+      const safeIndex = (index + activeLightboxItems.length) % activeLightboxItems.length;
+      const item = activeLightboxItems[safeIndex];
+
+      lightboxGalleryIndex = safeIndex;
+      lightboxImage.src = item.src;
+      lightboxImage.alt = item.alt;
+
+      if (activeLightboxItems === galleryItems) {
+        setLeadImage(safeIndex);
+      }
+    }
+
+    function openLightbox(index, items = galleryItems) {
+      activeLightboxItems = items;
+      setLightboxImage(index);
+      const single = activeLightboxItems.length <= 1;
+      lightboxPrev.classList.toggle('is-hidden', single);
+      lightboxNext.classList.toggle('is-hidden', single);
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      body.classList.add('lightbox-open');
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      body.classList.remove('lightbox-open');
+    }
+
+    function setMenu(open) {
+      body.classList.toggle('menu-open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+    }
+
+    toggle.addEventListener('click', () => {
+      const isOpen = body.classList.contains('menu-open');
+      setMenu(!isOpen);
+    });
+
+    scrim.addEventListener('click', () => setMenu(false));
+
+    leadViewer.addEventListener('click', (event) => {
+      event.preventDefault();
+      const currentSrc = leadViewer.getAttribute('href');
+      const currentIndex = galleryItems.findIndex((item) => item.src === currentSrc);
+      openLightbox(currentIndex >= 0 ? currentIndex : leadGalleryIndex);
+    });
+
+    mapGalleryLinks.forEach((link, index) => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        openLightbox(index, mapGalleryItems);
+      });
+    });
+
+    leadPrev.addEventListener('click', () => setLeadImage(leadGalleryIndex - 1));
+    leadNext.addEventListener('click', () => setLeadImage(leadGalleryIndex + 1));
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', () => setLightboxImage(lightboxGalleryIndex - 1));
+    lightboxNext.addEventListener('click', () => setLightboxImage(lightboxGalleryIndex + 1));
+
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.classList.contains('is-open')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (activeLightboxItems.length <= 1) return;
+        if (e.key === 'ArrowLeft') setLightboxImage(lightboxGalleryIndex - 1);
+        if (e.key === 'ArrowRight') setLightboxImage(lightboxGalleryIndex + 1);
+        return;
+      }
+
+      if (e.key === 'Escape') setMenu(false);
+    });
+
+    panel.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => setMenu(false));
+    });
+
+    setLeadImage(0);
+  </script>
+</body>
+</html>
