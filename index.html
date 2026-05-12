@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -95,11 +95,11 @@
       filter: brightness(1.08);
     }
 
-    .info-cta {
+    .tickets {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: clamp(114px, 11.6vw, 148px);
+      width: clamp(102px, 10vw, 132px);
       height: auto;
       padding: 0;
       text-decoration: none;
@@ -107,13 +107,13 @@
       transition: transform 0.2s ease, filter 0.2s ease;
     }
 
-    .info-cta img {
+    .tickets img {
       display: block;
       width: 100%;
       height: auto;
     }
 
-    .info-cta:hover {
+    .tickets:hover {
       transform: translateY(-1px);
       filter: brightness(1.08);
     }
@@ -332,8 +332,8 @@
         min-height: 40vh;
       }
 
-      .info-cta {
-        width: clamp(104px, 24vw, 134px);
+      .tickets {
+        width: clamp(92px, 22vw, 118px);
       }
 
       .home-cta {
@@ -382,8 +382,8 @@
         gap: 8px;
       }
 
-      .info-cta {
-        width: clamp(96px, 26vw, 118px);
+      .tickets {
+        width: clamp(84px, 24vw, 104px);
       }
 
       .home-cta {
@@ -395,20 +395,19 @@
 <body>
   <div class="topbar">
     <a class="home-cta" href="index.html" aria-label="Domovska stranka">
-      <img src="images/button2_home.png" alt="Home">
+      <img src="images/home.png" alt="Home">
     </a>
 
     <nav class="top-nav" aria-label="Primary">
-      <a href="#artists">Artists</a>
-      <a href="#timetable">Timetable</a>
-      <a href="tickets.html">Tickets</a>
+      <a href="#artists">Home</a>
+      <a href="#timetable">Program</a>
+      <a href="info.html" aria-label="Info"><img src="images/info button0.png" alt="Info" style="display:block;width:clamp(92px,8.4vw,112px);height:auto;"></a>
       <a href="archive.html">Archive</a>
-      <a href="info.html">Info</a>
     </nav>
 
     <div class="topbar-actions">
-      <a class="info-cta" href="info.html" aria-label="Info">
-        <img src="images/button.png" alt="Info">
+      <a class="tickets" href="tickets.html" aria-label="Tickets">
+        <img src="images/tickets.png" alt="Tickets">
       </a>
 
       <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
@@ -428,9 +427,8 @@
 
   <aside class="menu-panel" id="menuPanel" aria-hidden="true">
     <nav>
-      <a href="#artists">Artists</a>
-      <a href="#timetable">Timetable</a>
-      <a href="tickets.html">Tickets</a>
+      <a href="#artists">Home</a>
+      <a href="#timetable">Program</a>
       <a href="archive.html">Archive</a>
       <a href="info.html">Info</a>
     </nav>
@@ -446,7 +444,7 @@
       </div>
     </div>
     <span class="footer-meta">
-      <span>31.7.-1.8.</span><span class="accent">2026</span><a href="https://www.google.com/maps/place/P%C5%99espoln%C3%AD/@49.7714769,16.2159098,622m/data=!3m2!1e3!4b1!4m6!3m5!1s0x470d914beb683bcb:0x8a9102eb16dc626b!8m2!3d49.7714735!4d16.2184901!16s%2Fg%2F11hzwhftxf?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Lubná u Poličky</a><span class="accent">CZ</span>
+      <span>31.7.-1.8.</span><span class="accent">2026</span><a href="https://www.google.com/maps/place/P%C5%99espoln%C3%AD/@49.7714769,16.2159098,622m/data=!3m2!1e3!4b1!4m6!3m5!1s0x470d914beb683bcb:0x8a9102eb16dc626b!8m2!3d49.7714735!4d16.2184901!16s%2Fg%2F11hzwhftxf?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Lubn&#225; u Poli&#269;ky</a><span class="accent">CZ</span>
     </span>
   </footer>
 
@@ -481,3 +479,4 @@
   </script>
 </body>
 </html>
+

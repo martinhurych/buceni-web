@@ -76,7 +76,7 @@
     }
 
     .home-cta,
-    .info-cta {
+    .tickets {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -90,20 +90,20 @@
     }
 
     .home-cta img,
-    .info-cta img {
+    .tickets img {
       display: block;
       width: 100%;
       height: auto;
     }
 
     .home-cta:hover,
-    .info-cta:hover {
+    .tickets:hover {
       transform: translateY(-1px);
       filter: brightness(1.08);
     }
 
-    .info-cta {
-      width: clamp(114px, 11.6vw, 148px);
+    .tickets {
+      width: clamp(102px, 10vw, 132px);
     }
 
     .menu-toggle {
@@ -588,13 +588,13 @@
         width: 100%;
       }
 
-      .info-cta,
+      .tickets,
       .home-cta {
         width: clamp(92px, 22vw, 118px);
       }
 
-      .info-cta {
-        width: clamp(104px, 24vw, 134px);
+      .tickets {
+        width: clamp(92px, 22vw, 118px);
       }
     }
 
@@ -675,13 +675,13 @@
         gap: 8px;
       }
 
-      .info-cta,
+      .tickets,
       .home-cta {
         width: clamp(84px, 24vw, 104px);
       }
 
-      .info-cta {
-        width: clamp(96px, 26vw, 118px);
+      .tickets {
+        width: clamp(84px, 24vw, 104px);
       }
     }
   </style>
@@ -689,20 +689,19 @@
 <body>
   <div class="topbar">
     <a class="home-cta" href="index.html" aria-label="Domovska stranka">
-      <img src="images/button2_home.png" alt="Home">
+      <img src="images/home.png" alt="Home">
     </a>
 
     <nav class="top-nav" aria-label="Primary">
-      <a href="index.html#artists">Artists</a>
-      <a href="index.html#timetable">Timetable</a>
-      <a href="tickets.html">Tickets</a>
+      <a href="index.html#artists">Home</a>
+      <a href="index.html#timetable">Program</a>
+      <a class="active" href="info.html" aria-label="Info"><img src="images/info button0.png" alt="Info" style="display:block;width:clamp(92px,8.4vw,112px);height:auto;"></a>
       <a href="archive.html">Archive</a>
-      <a class="active" href="info.html">Info</a>
     </nav>
 
     <div class="topbar-actions">
-      <a class="info-cta" href="info.html#info" aria-label="Info">
-        <img src="images/button.png" alt="Info">
+      <a class="tickets" href="tickets.html" aria-label="Tickets">
+        <img src="images/tickets.png" alt="Tickets">
       </a>
 
       <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
@@ -779,9 +778,8 @@
 
   <aside class="menu-panel" id="menuPanel" aria-hidden="true">
     <nav>
-      <a href="index.html#artists">Artists</a>
-      <a href="index.html#timetable">Timetable</a>
-      <a href="tickets.html">Tickets</a>
+      <a href="index.html#artists">Home</a>
+      <a href="index.html#timetable">Program</a>
       <a href="archive.html">Archive</a>
       <a href="info.html">Info</a>
     </nav>
@@ -949,3 +947,4 @@
   </script>
 </body>
 </html>
+
