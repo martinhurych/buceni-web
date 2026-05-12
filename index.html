@@ -20,6 +20,11 @@
       box-sizing: border-box;
     }
 
+    html {
+      overflow-y: scroll;
+      scrollbar-gutter: stable;
+    }
+
     body {
       min-height: 100vh;
       background: #b8bbba;
@@ -38,6 +43,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 14px;
+      min-height: clamp(72px, 8.2vw, 94px);
     }
 
     .topbar-actions {
@@ -90,10 +96,6 @@
       height: auto;
     }
 
-    .home-cta:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.08);
-    }
 
     .tickets {
       display: inline-flex;
@@ -113,10 +115,6 @@
       height: auto;
     }
 
-    .tickets:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.08);
-    }
 
     .menu-toggle {
       width: 52px;

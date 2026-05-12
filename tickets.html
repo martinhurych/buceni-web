@@ -22,6 +22,11 @@
       box-sizing: border-box;
     }
 
+    html {
+      overflow-y: scroll;
+      scrollbar-gutter: stable;
+    }
+
     body {
       min-height: 100vh;
       background: #7cb9a3;
@@ -40,6 +45,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 14px;
+      min-height: clamp(72px, 8.2vw, 94px);
     }
 
     .topbar-actions {
@@ -95,18 +101,9 @@
       height: auto;
     }
 
-    .home-cta:hover,
-    .tickets:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.08);
-    }
 
     .tickets {
       width: clamp(102px, 10vw, 132px);
-    }
-
-    .home-cta {
-      width: clamp(110px, 10.8vw, 142px);
     }
 
     .menu-toggle {
@@ -186,7 +183,7 @@
     .tickets-group h2 {
       font-size: clamp(1.2rem, 1.8vw, 1.9rem);
       line-height: 1;
-      text-transform: lowercase;
+      text-transform: uppercase;
       font-weight: 700;
       color: #000000;
       margin-bottom: 8px;
@@ -412,9 +409,6 @@
         width: clamp(92px, 22vw, 118px);
       }
 
-      .home-cta {
-        width: clamp(98px, 23vw, 124px);
-      }
     }
 
     @media (max-width: 640px) {
@@ -477,9 +471,6 @@
         width: clamp(84px, 24vw, 104px);
       }
 
-      .home-cta {
-        width: clamp(88px, 25vw, 110px);
-      }
     }
   </style>
 </head>

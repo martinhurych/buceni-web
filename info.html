@@ -19,6 +19,11 @@
       box-sizing: border-box;
     }
 
+    html {
+      overflow-y: scroll;
+      scrollbar-gutter: stable;
+    }
+
     body {
       min-height: 100vh;
       background: #b8bbba;
@@ -41,6 +46,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 14px;
+      min-height: clamp(72px, 8.2vw, 94px);
     }
 
     .topbar-actions {
@@ -96,11 +102,6 @@
       height: auto;
     }
 
-    .home-cta:hover,
-    .tickets:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.08);
-    }
 
     .tickets {
       width: clamp(102px, 10vw, 132px);
@@ -160,37 +161,57 @@
       margin: 0 auto;
       color: #474747;
       font-family: Calibre, 'Avenir Next', 'Segoe UI', Arial, sans-serif;
-      font-size: clamp(1.05rem, 1.25vw, 1.35rem);
+      font-size: clamp(1.12rem, 1.35vw, 1.45rem);
       line-height: 1.5;
-      font-weight: 400;
+      font-weight: 600;
     }
 
     .info-shell p {
       margin: 0 0 18px;
       max-width: none;
-      font-weight: 400;
+      font-weight: 600;
     }
 
     .info-intro {
       margin: 0 0 22px;
-      font-size: clamp(1.45rem, 2.2vw, 2.05rem);
+      font-size: clamp(1.85rem, 3.2vw, 3.1rem);
       line-height: 1.28;
       font-weight: 600;
-      color: #f1f1f1;
+      color: #34363b;
+    }
+
+    .info-intro-image {
+      display: block;
+      width: 100%;
+      height: auto;
     }
 
     .info-intro .info-date-highlight {
-      font-weight: 700;
+      color: inherit;
+      font-weight: inherit;
     }
 
     .info-intro a {
-      color: #A80053;
-      font-weight: 700;
+      color: inherit;
+      font-weight: inherit;
     }
 
     .info-intro .info-strong-black {
-      color: #f6db1f;
-      font-weight: 700;
+      color: inherit;
+      font-weight: inherit;
+    }
+
+    .info-intro .intro-dot {
+      display: inline-block;
+      color: #F0D82E;
+      font-size: 1.35em;
+      line-height: 1;
+      vertical-align: -0.08em;
+      margin: 0 0.1em;
+    }
+
+    .info-date-custom {
+      color: #A80053;
     }
 
     .info-date-highlight {
@@ -711,7 +732,8 @@
   </div>
 
   <main class="info-shell" id="info" aria-label="Festival information">
-    <p class="info-intro">Bu&#269;en&#237; returns for its ninth edition on <span class="info-date-highlight">31 July - 1 August 2026</span>, at <a href="https://www.google.com/maps/place/P%C5%99espoln%C3%AD/@49.7714735,16.2184901,17z/data=!3m1!4b1!4m5!3m4!1s0x470d914beb683bcb:0x8a9102eb16dc626b!8m2!3d49.7714735!4d16.2184901" target="_blank" rel="noopener">P&#345;espoln&#237; in Lubn&#225; u Poli&#269;ky</a>, Czech Republic - <span class="info-strong-black">two days of experimental electronic music and audio-visual art</span>.</p>
+    <p class="info-intro"><img class="info-intro-image" src="images/info uvod.png" alt="BUCENI 9 poster"></p>
+    <p>Bu&#269;en&#237; returns for its ninth edition on <span class="info-date-custom">31 July - 1 August 2026</span>, at <strong><a class="info-link-accent" href="https://www.google.com/maps/place/P%C5%99espoln%C3%AD/@49.7714735,16.2184901,17z/data=!3m1!4b1!4m5!3m4!1s0x470d914beb683bcb:0x8a9102eb16dc626b!8m2!3d49.7714735!4d16.2184901" target="_blank" rel="noopener">P&#345;espoln&#237;</a></strong> in Lubn&#225; u Poli&#269;ky, Czech Republic - two days of experimental electronic music and audio-visual art.</p>
 
     <div class="info-lead">
       <button class="lead-nav prev" id="leadPrev" aria-label="Previous image">&#8249;</button>
