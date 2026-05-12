@@ -681,8 +681,8 @@
 
     <div class="info-lead">
       <button class="lead-nav prev" id="leadPrev" aria-label="Previous image">&#8249;</button>
-      <a href="images/info_galerie1/1.jpg" id="leadViewer" aria-label="Open main gallery">
-        <img src="images/info_galerie1/1.jpg" alt="Buceni main gallery image" id="leadImage">
+      <a href="images/info/1.jpg" id="leadViewer" aria-label="Open main gallery">
+        <img src="images/info/1.jpg" alt="Buceni main gallery image" id="leadImage">
       </a>
       <button class="lead-nav next" id="leadNext" aria-label="Next image">&#8250;</button>
     </div>
@@ -777,20 +777,20 @@
     const leadPrev = document.getElementById('leadPrev');
     const leadNext = document.getElementById('leadNext');
     const galleryItems = [
-      { src: 'images/info_galerie1/1.jpg', alt: 'Buceni main gallery image 1', leadPosition: 'center 66%' },
-      { src: 'images/info_galerie1/2.jpg', alt: 'Buceni main gallery image 2' },
-      { src: 'images/info_galerie1/6.jpg', alt: 'Buceni main gallery image 3' },
-      { src: 'images/info_galerie1/7.jpg', alt: 'Buceni main gallery image 4' },
-      { src: 'images/info_galerie1/A08.jpg', alt: 'Buceni main gallery image 5' },
-      { src: 'images/info_galerie1/A09.jpg', alt: 'Buceni main gallery image 6' },
-      { src: 'images/info_galerie1/A10.jpg', alt: 'Buceni main gallery image 7' },
-      { src: 'images/info_galerie1/A15.jpg', alt: 'Buceni main gallery image 8' },
-      { src: 'images/info_galerie1/A18.jpg', alt: 'Buceni main gallery image 9' },
-      { src: 'images/info_galerie1/B01.jpg', alt: 'Buceni main gallery image 10' },
-      { src: 'images/info_galerie1/B06.jpg', alt: 'Buceni main gallery image 11' },
-      { src: 'images/info_galerie1/B07.jpg', alt: 'Buceni main gallery image 12' },
-      { src: 'images/info_galerie1/B11.jpg', alt: 'Buceni main gallery image 13' },
-      { src: 'images/info_galerie1/B20.jpg', alt: 'Buceni main gallery image 14' }
+      { src: 'images/info/1.jpg', alt: 'Buceni main gallery image 1', leadPosition: 'center 66%' },
+      { src: 'images/info/2.jpg', alt: 'Buceni main gallery image 2' },
+      { src: 'images/info/6.jpg', alt: 'Buceni main gallery image 3' },
+      { src: 'images/info/7.jpg', alt: 'Buceni main gallery image 4' },
+      { src: 'images/info/A08.jpg', alt: 'Buceni main gallery image 5' },
+      { src: 'images/info/A09.jpg', alt: 'Buceni main gallery image 6', leadPosition: 'center 62%' },
+      { src: 'images/info/A10.jpg', alt: 'Buceni main gallery image 7' },
+      { src: 'images/info/A15.jpg', alt: 'Buceni main gallery image 8' },
+      { src: 'images/info/A18.jpg', alt: 'Buceni main gallery image 9' },
+      { src: 'images/info/B01.jpg', alt: 'Buceni main gallery image 10' },
+      { src: 'images/info/B06.jpg', alt: 'Buceni main gallery image 11' },
+      { src: 'images/info/B07.jpg', alt: 'Buceni main gallery image 12', leadPosition: 'center 62%' },
+      { src: 'images/info/B11.jpg', alt: 'Buceni main gallery image 13' },
+      { src: 'images/info/B20.jpg', alt: 'Buceni main gallery image 14' }
     ];
     const mapGalleryItems = mapGalleryLinks.map((link) => {
       const thumb = link.querySelector('img');
