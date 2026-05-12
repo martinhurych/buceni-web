@@ -210,6 +210,13 @@
       font-weight: 700;
     }
 
+    .info-shell a.info-link-accent,
+    .info-shell a.info-link-accent:visited,
+    .info-shell a.info-link-accent:hover,
+    .info-shell a.info-link-accent:active {
+      color: #A80053;
+    }
+
     .info-lead {
       margin-bottom: 24px;
       position: relative;
@@ -335,6 +342,34 @@
       object-fit: cover;
       border: 0;
       box-shadow: none;
+    }
+
+    .sponsors-strip {
+      margin: 24px 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2px 10px;
+      align-items: center;
+    }
+
+    .sponsor-logo {
+      background: transparent;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 104px;
+    }
+
+    .sponsor-logo img {
+      max-width: 100%;
+      max-height: 92px;
+      width: auto;
+      height: auto;
+      display: block;
+      object-fit: contain;
     }
 
     .lightbox {
@@ -687,6 +722,10 @@
       <button class="lead-nav next" id="leadNext" aria-label="Next image">&#8250;</button>
     </div>
 
+    <p>You can get to the festival by train or bus. Train connections go to the stations &#268;esk&#225; T&#345;ebov&#225; or Poli&#269;ka. From there you have to take a bus to Lubn&#225;. The bus stop in Lubn&#225; is called Obecn&#237; &#250;&#345;ad (the municipality office), and from there you can walk to P&#345;espoln&#237; and the festival Bu&#269;en&#237;.</p>
+
+    <p>Train and bus connections can be found at <a class="info-link-accent" href="https://idos.idnes.cz/en/vlakyautobusymhdvse/spojeni/" target="_blank" rel="noopener">this link</a>.</p>
+
     <div class="info-map-block">
       <figure>
         <a href="images/info/map buceni_large.jpg" id="mapViewer" data-map-gallery-item aria-label="Open map image">
@@ -694,10 +733,6 @@
         </a>
       </figure>
     </div>
-
-    <p>You can get to the festival by train or bus. Train connections go to the stations &#268;esk&#225; T&#345;ebov&#225; or Poli&#269;ka. From there you have to take a bus to Lubn&#225;. The bus stop in Lubn&#225; is called Obecn&#237; &#250;&#345;ad (the municipality office), and from there you can walk to P&#345;espoln&#237; and the festival Bu&#269;en&#237;.</p>
-
-    <p>Train and bus connections can be found at <a href="https://idos.idnes.cz/en/vlakyautobusymhdvse/spojeni/" target="_blank" rel="noopener">this link</a>.</p>
 
     <p>Visitors have the option to camp or sleep outside under the stars (bring your own gear). There will be a kitchen with plant-based options and a bar.</p>
 
@@ -720,6 +755,14 @@
     </div>
 
     <p>Bu&#269;en&#237; is organised by the P&#345;espoln&#237; association based in the Czech countryside. Since 2017, P&#345;espoln&#237; has been organising exhibitions, residencies, Bu&#269;en&#237; festival, and cultural and educational programmes. The festival is supported by the Czech Ministry of Culture, the State Fund of Culture, the Pardubice Region, the Visegrad Fund, and the municipality of Lubn&#225;.</p>
+
+    <div class="sponsors-strip" aria-label="Sponsors">
+      <figure class="sponsor-logo"><img src="loga sponzori/ministerstvo kultury.png" alt="Ministerstvo kultury"></figure>
+      <figure class="sponsor-logo"><img src="loga sponzori/statni fond.png" alt="Státní fond kultury"></figure>
+      <figure class="sponsor-logo"><img src="loga sponzori/pardubice.png" alt="Pardubický kraj"></figure>
+      <figure class="sponsor-logo"><img src="loga sponzori/15_visegrad.png" alt="Visegrad Fund"></figure>
+      <figure class="sponsor-logo"><img src="loga sponzori/lubna.png" alt="Obec Lubná"></figure>
+    </div>
 
   </main>
 
