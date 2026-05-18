@@ -196,11 +196,11 @@
       display: flex;
       justify-content: center;
       width: 100%;
-      margin-top: 6px;
+      margin-top: -74px;
     }
 
     .artists-tba img {
-      width: min(540px, 93vw);
+      width: min(810px, 93vw);
       height: auto;
       display: block;
     }
@@ -450,7 +450,7 @@
       }
 
       .artists-tba img {
-        width: min(300px, 82vw);
+        width: min(450px, 82vw);
       }
 
       .site-footer {
@@ -559,9 +559,18 @@
 
   <script>
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-    window.scrollTo(0, 0);
+    function goTop() {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }
+    goTop();
     document.documentElement.style.opacity = '1';
-    window.addEventListener('pageshow', () => { window.scrollTo(0, 0); document.documentElement.style.opacity = '1'; });
+    window.addEventListener('pageshow', function() {
+      goTop();
+      document.documentElement.style.opacity = '1';
+      requestAnimationFrame(goTop);
+    });
 
     const body = document.body;
     const toggle = document.getElementById('menuToggle');
