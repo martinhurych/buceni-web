@@ -178,6 +178,7 @@
       align-content: start;
       gap: 10px;
       padding-top: 12px;
+      flex: 1;
     }
 
     .site-header {
@@ -496,8 +497,8 @@
     </a>
 
     <nav class="top-nav" aria-label="Primary">
-      <a href="#artists">Home</a>
-      <a href="#timetable">Program</a>
+      <a href="index.html">Home</a>
+      <a href="index.html">Program</a>
       <a href="info.html" aria-label="Info" style="position:relative;top:-5px;"><img src="images/Web Symbols + GIF/Info.svg" alt="Info" style="display:block;width:clamp(92px,8.4vw,112px);height:auto;"></a>
       <a href="archive.html">Archive</a>
     </nav>
@@ -519,7 +520,7 @@
     <header class="site-header">
       <img src="images/Web Symbols + GIF/Buceni-main.png" alt="Buceni header">
     </header>
-    <div class="artists-tba" aria-hidden="true">
+    <div class="artists-tba" id="timetable" aria-hidden="true">
       <img src="images/Web Symbols + GIF/ArtistTimetable_WEB.gif" alt="Artists info">
     </div>
     <div class="main-tickets-cta">
@@ -531,8 +532,8 @@
 
   <aside class="menu-panel" id="menuPanel" aria-hidden="true">
     <nav>
-      <a href="#artists">Home</a>
-      <a href="#timetable">Program</a>
+      <a href="index.html">Home</a>
+      <a href="index.html">Program</a>
       <a href="archive.html">Archive</a>
       <a href="info.html">Info</a>
     </nav>
@@ -579,7 +580,17 @@
     });
 
     panel.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => setMenu(false));
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          setMenu(false);
+          const target = document.querySelector(href);
+          if (target) setTimeout(() => target.scrollIntoView({ behavior: 'smooth' }), 50);
+        } else {
+          setMenu(false);
+        }
+      });
     });
   </script>
 
