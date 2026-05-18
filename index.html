@@ -341,14 +341,18 @@
       z-index: 55;
     }
 
+    .footer-wrapper {
+      position: relative;
+    }
+
     .deco-traktor {
       position: absolute;
-      left: 0;
+      left: -16px;
       bottom: 100%;
       width: min(450px, 39vw);
       height: auto;
       pointer-events: none;
-      z-index: 0;
+      z-index: 1;
     }
 
     .menu-open .scrim {
@@ -420,6 +424,10 @@
       .home-cta {
         width: clamp(92px, 22vw, 118px);
       }
+
+      .main-tickets-cta {
+        display: none;
+      }
     }
 
     @media (max-width: 640px) {
@@ -429,6 +437,10 @@
 
       body {
         padding: 12px;
+      }
+
+      .deco-traktor {
+        left: -12px;
       }
 
       .site-header img {
@@ -526,8 +538,9 @@
     </nav>
   </aside>
 
+  <div class="footer-wrapper">
+  <img class="deco-traktor" src="images/Web Symbols + GIF/Traktor-cut.svg" alt="">
   <footer class="site-footer" id="contact">
-    <img class="deco-traktor" src="images/Web Symbols + GIF/Traktor-cut.svg" alt="">
     <div class="footer-grid">
       <div class="footer-col">
         <a href="https://www.instagram.com/prespolnispolek/" target="_blank" rel="noopener">Instagram</a>
@@ -540,8 +553,7 @@
       <span>31.7. - 1.8.</span><span class="accent">2026</span><a href="https://www.google.com/maps/place/P%C5%99espoln%C3%AD/@49.7714769,16.2159098,622m/data=!3m2!1e3!4b1!4m6!3m5!1s0x470d914beb683bcb:0x8a9102eb16dc626b!8m2!3d49.7714735!4d16.2184901!16s%2Fg%2F11hzwhftxf?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Lubn&#225; u Poli&#269;ky</a><span class="accent">CZ</span><a class="footer-tickets" href="tickets.html" aria-label="Tickets"><img src="images/Web Symbols + GIF/tickets.png" alt="Tickets"></a>
     </span>
   </footer>
-
-  <div class="scrim" id="scrim"></div>
+  </div>
 
   <script>
     const body = document.body;
