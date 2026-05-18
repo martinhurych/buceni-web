@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" id="themeColor" content="#5f659f">
   <title>BUCENI ARCHIVE</title>
   <style>
     :root {
@@ -335,8 +336,6 @@
     .menu-panel {
       position: fixed;
       inset: 0;
-      width: 100vw;
-      height: 100vh;
       background: #7CB9A3;
       display: none;
       align-items: center;
@@ -346,6 +345,10 @@
 
     .menu-open .menu-panel {
       display: flex;
+    }
+
+    .menu-open body {
+      background: #7CB9A3;
     }
 
     .menu-panel nav {
@@ -685,6 +688,8 @@
       body.classList.toggle('menu-open', open);
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+      document.documentElement.style.backgroundColor = open ? '#7CB9A3' : '';
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', open ? '#7CB9A3' : '#5f659f');
     }
 
     toggle.addEventListener('click', () => {

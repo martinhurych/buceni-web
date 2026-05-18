@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" id="themeColor" content="#7cb9a3">
   <title>BUCENI TICKETS</title>
   <style>
     :root {
@@ -362,8 +363,7 @@
     .menu-panel {
       position: fixed;
       inset: 0;
-      width: 100vw;
-      height: 100vh;
+
       background: #5F659F;
       display: none;
       align-items: center;
@@ -373,6 +373,10 @@
 
     .menu-open .menu-panel {
       display: flex;
+    }
+
+    .menu-open body {
+      background: #5F659F;
     }
 
     .menu-panel nav {
@@ -648,6 +652,8 @@
       body.classList.toggle('menu-open', open);
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+      document.documentElement.style.backgroundColor = open ? '#5F659F' : '';
+      document.getElementById('themeColor').content = open ? '#5F659F' : '#7cb9a3';
     }
 
     toggle.addEventListener('click', () => {
