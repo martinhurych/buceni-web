@@ -444,6 +444,9 @@
       transition: transform 0.2s ease, filter 0.2s ease;
     }
 
+    .lightbox-close img { width: 5.5em; }
+    .lightbox-nav img { width: 7.5em; }
+
     .lightbox-nav.is-hidden {
       visibility: hidden;
       pointer-events: none;
@@ -697,14 +700,13 @@
 
       .lightbox-close,
       .lightbox-nav {
-        width: 38px;
-        height: 38px;
         font-size: 1.55rem;
       }
 
+      .lightbox-close img { width: 2.5em; }
+      .lightbox-nav img { width: 3em; }
+
       .lightbox-nav {
-        width: 42px;
-        height: 42px;
         font-size: 1.75rem;
       }
 
@@ -829,13 +831,13 @@
   </main>
 
   <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image gallery" aria-modal="true">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Close gallery"><img src="images/Web Symbols + GIF/galerie_krizek-03.svg" alt="" style="width:5.5em;height:auto;"></button>
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close gallery"><img src="images/Web Symbols + GIF/galerie_krizek-03.svg" alt="" style="height:auto;"></button>
     <div class="lightbox-stage">
-      <button class="lightbox-nav" id="lightboxPrev" aria-label="Previous image"><img src="images/Web Symbols + GIF/sipky galerie2-02.svg" alt="" style="width:7.5em;height:auto;"></button>
+      <button class="lightbox-nav" id="lightboxPrev" aria-label="Previous image"><img src="images/Web Symbols + GIF/sipky galerie2-02.svg" alt="" style="height:auto;"></button>
       <figure class="lightbox-image-wrap">
         <img class="lightbox-image" id="lightboxImage" src="" alt="">
       </figure>
-      <button class="lightbox-nav" id="lightboxNext" aria-label="Next image"><img src="images/Web Symbols + GIF/sipky galerie2-01.svg" alt="" style="width:7.5em;height:auto;"></button>
+      <button class="lightbox-nav" id="lightboxNext" aria-label="Next image"><img src="images/Web Symbols + GIF/sipky galerie2-01.svg" alt="" style="height:auto;"></button>
     </div>
   </div>
 
