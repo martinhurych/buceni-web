@@ -866,6 +866,9 @@
   <div class="scrim" id="scrim"></div>
 
   <script>
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
+
     const body = document.body;
     const toggle = document.getElementById('menuToggle');
     const panel = document.getElementById('menuPanel');

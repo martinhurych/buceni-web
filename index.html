@@ -26,6 +26,7 @@
     html {
       overflow-y: scroll;
       scrollbar-gutter: stable;
+      opacity: 0;
     }
 
     @font-face { font-family: 'Calibre'; src: url('Font/calibre/CalibreRegular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: block; }
@@ -557,6 +558,11 @@
   </div>
 
   <script>
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
+    document.documentElement.style.opacity = '1';
+    window.addEventListener('pageshow', () => { window.scrollTo(0, 0); document.documentElement.style.opacity = '1'; });
+
     const body = document.body;
     const toggle = document.getElementById('menuToggle');
     const panel = document.getElementById('menuPanel');
@@ -587,6 +593,10 @@
           setMenu(false);
           const target = document.querySelector(href);
           if (target) setTimeout(() => target.scrollIntoView({ behavior: 'smooth' }), 50);
+        } else if (href === 'index.html') {
+          e.preventDefault();
+          setMenu(false);
+          setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 50);
         } else {
           setMenu(false);
         }
