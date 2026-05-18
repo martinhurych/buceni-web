@@ -1,0 +1,375 @@
+%!Adobe-FontList 1.23
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Calibre-Black
+FamilyName:Calibre
+StyleName:Black
+FullName:Calibre Black
+MenuName:Calibre Black
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\marti\VYTVORY\a prespolni\_program\20250801 BUČENÍ 8\matej grafika\Podklady grafika\Font\calibre\CalibreBlack.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:51732
+FileModTime:1751478418
+WeightClass:900
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Calibre Black
+NameArray:0,Win,1,Calibre Black
+NameArray:0,Win,16,Calibre
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Calibre-BlackItalic
+FamilyName:Calibre
+StyleName:Black Italic
+FullName:Calibre Black Italic
+MenuName:Calibre Black
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:C:\Users\marti\VYTVORY\a prespolni\_program\20250801 BUČENÍ 8\matej grafika\Podklady grafika\Font\calibre\CalibreBlackItalic.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:51960
+FileModTime:1751478418
+WeightClass:900
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,4,Calibre Black Italic
+NameArray:0,Win,1,Calibre Black
+NameArray:0,Win,16,Calibre
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Calibre-Bold
+FamilyName:Calibre
+StyleName:Bold
+FullName:Calibre Bold
+MenuName:Calibre Bold
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\marti\VYTVORY\a prespolni\_program\20250801 BUČENÍ 8\matej grafika\Podklady grafika\Font\calibre\CalibreBold.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:53676
+FileModTime:1751478418
+WeightClass:700
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Calibre Bold
+NameArray:0,Win,1,Calibre Bold
+NameArray:0,Win,16,Calibre
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Calibre-BoldItalic
+FamilyName:Calibre
+StyleName:Bold Italic
+FullName:Calibre Bold Italic
+MenuName:Calibre Bold
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:C:\Users\marti\VYTVORY\a prespolni\_program\20250801 BUČENÍ 8\matej grafika\Podklady grafika\Font\calibre\CalibreBoldItalic.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:53484
+FileModTime:1751478418
+WeightClass:700
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,4,Calibre Bold Italic
+NameArray:0,Win,1,Calibre Bold
+NameArray:0,Win,16,Calibre
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Calibre-Light
+FamilyName:Calibre
+StyleName:Light
+FullName:Calibre Light
+MenuName:Calibre Light
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\marti\VYTVORY\a prespolni\_program\20250801 BUČENÍ 8\matej grafika\Podklady grafika\Font\calibre\CalibreLight.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:49908
+FileModTime:1751478418
+WeightClass:300
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Calibre Light
+NameArray:0,Win,1,Calibre Light
+NameArray:0,Win,16,Calibre
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Calibre-LightItalic
+FamilyName:Calibre
+StyleName:Light Italic
+FullName:Calibre Light Italic
+MenuName:Calibre Light
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:C:\Users\marti\VYTVORY\a prespolni\_program\20250801 BUČENÍ 8\matej grafika\Podklady grafika\Font\calibre\CalibreLightItalic.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:51096
+FileModTime:1751478418
+WeightClass:300
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,4,Calibre Light Italic
+NameArray:0,Win,1,Calibre Light
+NameArray:0,Win,16,Calibre
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Calibre-Medium
+FamilyName:Calibre
+StyleName:Medium
+FullName:Calibre Medium
+MenuName:Calibre Medium
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\marti\VYTVORY\a prespolni\_program\20250801 BUČENÍ 8\matej grafika\Podklady grafika\Font\calibre\CalibreMedium.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:47860
+FileModTime:1751478418
+WeightClass:500
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Calibre Medium
+NameArray:0,Win,1,Calibre Medium
+NameArray:0,Win,16,Calibre
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Calibre-MediumItalic
+FamilyName:Calibre
+StyleName:Medium Italic
+FullName:Calibre Medium Italic
+MenuName:Calibre Medium
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:C:\Users\marti\VYTVORY\a prespolni\_program\20250801 BUČENÍ 8\matej grafika\Podklady grafika\Font\calibre\CalibreMediumItalic.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:48748
+FileModTime:1751478418
+WeightClass:500
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,4,Calibre Medium Italic
+NameArray:0,Win,1,Calibre Medium
+NameArray:0,Win,16,Calibre
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Calibre-Regular
+FamilyName:Calibre
+StyleName:Regular
+FullName:Calibre
+MenuName:Calibre Regular
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\marti\VYTVORY\a prespolni\_program\20250801 BUČENÍ 8\matej grafika\Podklady grafika\Font\calibre\CalibreRegular.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:49856
+FileModTime:1751478418
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,18,Calibre Regular
+NameArray:0,Mac,4,Calibre
+NameArray:0,Win,1,Calibre Regular
+NameArray:0,Win,16,Calibre
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Calibre-RegularItalic
+FamilyName:Calibre
+StyleName:Regular Italic
+FullName:Calibre Regular Italic
+MenuName:Calibre Regular
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:C:\Users\marti\VYTVORY\a prespolni\_program\20250801 BUČENÍ 8\matej grafika\Podklady grafika\Font\calibre\CalibreRegularItalic.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:51144
+FileModTime:1751478418
+WeightClass:400
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,4,Calibre Regular Italic
+NameArray:0,Win,1,Calibre Regular
+NameArray:0,Win,16,Calibre
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Calibre-Semibold
+FamilyName:Calibre
+StyleName:Semibold
+FullName:Calibre Semibold
+MenuName:Calibre Semibold
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\marti\VYTVORY\a prespolni\_program\20250801 BUČENÍ 8\matej grafika\Podklady grafika\Font\calibre\CalibreSemibold.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:52780
+FileModTime:1751478418
+WeightClass:600
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Calibre Semibold
+NameArray:0,Win,1,Calibre Semibold
+NameArray:0,Win,16,Calibre
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Calibre-SemiboldItalic
+FamilyName:Calibre
+StyleName:Semibold Italic
+FullName:Calibre Semibold Italic
+MenuName:Calibre Semibold
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:C:\Users\marti\VYTVORY\a prespolni\_program\20250801 BUČENÍ 8\matej grafika\Podklady grafika\Font\calibre\CalibreSemiboldItalic.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:52708
+FileModTime:1751478418
+WeightClass:600
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,4,Calibre Semibold Italic
+NameArray:0,Win,1,Calibre Semibold
+NameArray:0,Win,16,Calibre
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Calibre-Thin
+FamilyName:Calibre
+StyleName:Thin
+FullName:Calibre Thin
+MenuName:Calibre Thin
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\marti\VYTVORY\a prespolni\_program\20250801 BUČENÍ 8\matej grafika\Podklady grafika\Font\calibre\CalibreThin.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:46740
+FileModTime:1751478418
+WeightClass:250
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Calibre Thin
+NameArray:0,Win,1,Calibre Thin
+NameArray:0,Win,16,Calibre
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Calibre-ThinItalic
+FamilyName:Calibre
+StyleName:Thin Italic
+FullName:Calibre Thin Italic
+MenuName:Calibre Thin
+StyleBits:1
+WritingScript:Roman
+OutlineFileName:C:\Users\marti\VYTVORY\a prespolni\_program\20250801 BUČENÍ 8\matej grafika\Podklady grafika\Font\calibre\CalibreThinItalic.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:47264
+FileModTime:1751478418
+WeightClass:250
+WidthClass:5
+AngleClass:1
+NameArray:0,Mac,4,Calibre Thin Italic
+NameArray:0,Win,1,Calibre Thin
+NameArray:0,Win,16,Calibre
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:C:\Users\marti\VYTVORY\a prespolni\_program\20250801 BUČENÍ 8\matej grafika\Podklady grafika\Font\calibre\readme.txt
+FileModTime:1751478418
+%EndFont
+
