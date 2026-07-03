@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../images/Web Symbols + GIF/Kravka.svg" type="image/svg+xml">
+  <title>Sineraw — BUČENÍ 9</title>
+  <style>
+    :root { --yellow: #f6db1f; --white: #f1f1f1; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    @view-transition { navigation: none; }
+    ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+    html { opacity: 0; overflow-y: scroll; scrollbar-gutter: stable; }
+    @font-face { font-family: 'Calibre'; src: url('../Font/calibre/CalibreRegular.otf') format('opentype'); font-weight: 400; font-display: block; }
+    @font-face { font-family: 'Calibre'; src: url('../Font/calibre/CalibreRegularItalic.otf') format('opentype'); font-weight: 400; font-style: italic; font-display: block; }
+    @font-face { font-family: 'Calibre'; src: url('../Font/calibre/CalibreBold.otf') format('opentype'); font-weight: 700; font-display: block; }
+    @font-face { font-family: 'Calibre'; src: url('../Font/calibre/CalibreBlack.otf') format('opentype'); font-weight: 900; font-display: block; }
+
+    body {
+      background: #b8bbba;
+      font-family: Calibre, 'Avenir Next', 'Segoe UI', Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 16px;
+      gap: 0;
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: clamp(56px, 7vw, 80px);
+      margin-bottom: 32px;
+    }
+    .back-link {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 900;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      text-transform: uppercase;
+      letter-spacing: -0.015em;
+      line-height: 1;
+    }
+    .back-link:hover { color: var(--yellow); }
+    .header-logo { display: inline-flex; width: clamp(70px, 7vw, 93px); }
+    .header-logo img { width: 100%; height: auto; display: block; }
+
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto;
+      gap: 24px 40px;
+    }
+
+    .artist-name {
+      grid-column: 1 / -1;
+      font-size: clamp(3.5rem, 10vw, 8.5rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 0.88;
+    }
+
+    .artist-photo { grid-column: 1; grid-row: 2; }
+    .artist-photo img { width: 100%; height: auto; display: block; object-fit: cover; }
+
+    .artist-info {
+      grid-column: 2;
+      grid-row: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      padding-top: 4px;
+    }
+
+    .artist-bio {
+      color: var(--white);
+      font-size: clamp(1rem, 1.4vw, 1.22rem);
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    .artist-bio em { font-style: italic; }
+
+    .artist-links {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .artist-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: clamp(1rem, 1.3vw, 1.15rem);
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      border-bottom: 2px solid rgba(246, 219, 31, 0.35);
+      padding-bottom: 4px;
+      transition: color 0.15s ease, border-color 0.15s ease;
+      align-self: flex-start;
+    }
+    .artist-links a:hover { color: var(--yellow); border-color: var(--yellow); }
+
+    .artist-video {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+    }
+    .artist-video iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    @media (max-width: 700px) {
+      body { padding: 12px; }
+      main { grid-template-columns: 1fr; }
+      .artist-name { grid-column: 1; }
+      .artist-photo { grid-column: 1; grid-row: 2; }
+      .artist-info  { grid-column: 1; grid-row: 3; }
+      .artist-video { grid-column: 1; grid-row: 4; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <a class="back-link" href="../index.html">← Back</a>
+    <a class="header-logo" href="../index.html" aria-label="Bučení 9">
+      <img src="../images/Web Symbols + GIF/Buceni-logo.svg" alt="Bučení 9">
+    </a>
+  </div>
+
+  <main>
+    <h1 class="artist-name">Sineraw</h1>
+
+    <div class="artist-photo">
+      <img src="sineraw/1080x1350_01 (1).jpg" alt="Sineraw">
+    </div>
+
+    <div class="artist-info">
+      <p class="artist-bio">
+        Sineraw is the musical alias of Italian producer, creative coder, and pasta enthusiast Francesco G. Gagliardi. His music moves between uncanny trap rhythms, overclocked jungle, and experimental club architectures, weaving together ballistic sound design and moments of cyber-phantasmagoria. With a series of releases on influential labels such as Gin&amp;Platonic, CLAM, Ashida Park, Pho Bho and an upcoming album on A Flooded Need, Sineraw builds intricate sonic worlds where raw field recordings collide with hyper-synthetic textures. The result is a series of high-intensity, detail-rich compositions that reprogram the listener's spatial perception, blurring the line between organic decay and digital evolution.
+      </p>
+      <div class="artist-links">
+        <a href="https://www.instagram.com/sineraw/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://ginandplatonic.bandcamp.com/album/mimetic-fauna" target="_blank" rel="noopener">Bandcamp</a>
+      </div>
+    </div>
+
+    <div class="artist-video">
+      <iframe
+        src="https://www.youtube.com/embed/CTQWnPV1kpA"
+        title="Sineraw"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </main>
+
+  <script>
+    document.documentElement.style.opacity = '1';
+    window.addEventListener('pageshow', function() { document.documentElement.style.opacity = '1'; });
+  </script>
+</body>
+</html>

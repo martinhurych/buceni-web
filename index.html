@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/Web Symbols + GIF/Kravka.svg" type="image/svg+xml">
   <title>BUCENI</title>
   <style>
     :root {
@@ -192,17 +193,40 @@
       display: block;
     }
 
-    .artists-tba {
-      display: flex;
-      justify-content: center;
+    .artists-list {
       width: 100%;
-      margin-top: -29px;
+      max-width: 860px;
+      margin: 0 auto;
+      margin-top: 32px;
+      padding: 0.3em 8px 0.3em;
+      line-height: 1.18;
     }
 
-    .artists-tba img {
-      width: min(810px, 93vw);
-      height: auto;
-      display: block;
+    .artists-list a {
+      display: inline;
+      color: #f1f1f1;
+      text-decoration: none;
+      font-size: clamp(1.7rem, 3.8vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      transition: color 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .artists-list a::after {
+      content: ' /';
+      color: rgba(246, 219, 31, 0.45);
+      margin: 0 0.18em 0 0.05em;
+      font-weight: 400;
+    }
+
+    .artists-list a:last-child::after {
+      content: '';
+    }
+
+    .artists-list a:hover {
+      color: var(--yellow);
     }
 
     .site-footer {
@@ -447,10 +471,6 @@
         width: 96vw;
       }
 
-      .artists-tba img {
-        width: min(585px, 93vw);
-      }
-
       .site-footer {
         margin: 0 -12px -12px;
         padding: 16px 14px 16px;
@@ -519,9 +539,18 @@
     <header class="site-header">
       <img src="images/Web Symbols + GIF/Buceni-main.png" alt="Buceni header">
     </header>
-    <div class="artists-tba" id="timetable" aria-hidden="true">
-      <img src="images/Web Symbols + GIF/ArtistTimetable_WEB.gif" alt="Artists info">
-    </div>
+    <section class="artists-list" id="lineup" aria-label="Lineup">
+      <a href="artists/ziur.html">Ziúr</a>
+      <a href="artists/egg-meat.html">Egg Meat</a>
+      <a href="artists/emer.html">emer</a>
+      <a href="artists/bj-holy.html">Bj Holy</a>
+      <a href="artists/sineraw.html">Sineraw</a>
+      <a href="artists/rodrigo-constanzo.html">Rodrigo Constanzo</a>
+      <a href="artists/judith-hamman.html">Judith Hamman</a>
+      <a href="artists/thijs-jaeger-jesus-canuto-iglesias.html">Thijs Jaeger &amp; Jesus Canuto Iglesias</a>
+      <a href="artists/alley-catts.html">Alley Catts</a>
+      <a href="artists/oliver-torr-aggelos-paitakis.html">Oliver Torr &amp; Aggelos Paitakis</a>
+    </section>
     <div class="main-tickets-cta">
       <a href="tickets.html" aria-label="Tickets">
         <img src="images/Web Symbols + GIF/tickets.png" alt="Tickets">

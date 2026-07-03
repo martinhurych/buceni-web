@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../images/Web Symbols + GIF/Kravka.svg" type="image/svg+xml">
+  <title>Judith Hamman — BUČENÍ 9</title>
+  <style>
+    :root { --yellow: #f6db1f; --white: #f1f1f1; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    @view-transition { navigation: none; }
+    ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+    html { opacity: 0; overflow-y: scroll; scrollbar-gutter: stable; }
+    @font-face { font-family: 'Calibre'; src: url('../Font/calibre/CalibreRegular.otf') format('opentype'); font-weight: 400; font-display: block; }
+    @font-face { font-family: 'Calibre'; src: url('../Font/calibre/CalibreRegularItalic.otf') format('opentype'); font-weight: 400; font-style: italic; font-display: block; }
+    @font-face { font-family: 'Calibre'; src: url('../Font/calibre/CalibreBold.otf') format('opentype'); font-weight: 700; font-display: block; }
+    @font-face { font-family: 'Calibre'; src: url('../Font/calibre/CalibreBlack.otf') format('opentype'); font-weight: 900; font-display: block; }
+    body {
+      background: #b8bbba;
+      font-family: Calibre, 'Avenir Next', 'Segoe UI', Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 16px;
+      gap: 24px;
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: clamp(56px, 7vw, 80px);
+    }
+    .back-link {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 900;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      text-transform: uppercase;
+      letter-spacing: -0.015em;
+      line-height: 1;
+    }
+    .back-link:hover { color: var(--yellow); }
+    .header-logo { display: inline-flex; width: clamp(70px, 7vw, 93px); }
+    .header-logo img { width: 100%; height: auto; display: block; }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 860px;
+      margin: 0 auto;
+      width: 100%;
+      padding-top: clamp(24px, 5vw, 64px);
+    }
+    .artist-name {
+      font-size: clamp(3.5rem, 12vw, 9rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 0.9;
+      margin-bottom: 40px;
+    }
+    .artist-bio {
+      color: var(--white);
+      font-size: clamp(1.1rem, 1.8vw, 1.45rem);
+      font-weight: 400;
+      line-height: 1.6;
+      max-width: 560px;
+    }
+    @media (max-width: 640px) { body { padding: 12px; } }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <a class="back-link" href="../index.html">← Back</a>
+    <a class="header-logo" href="../index.html" aria-label="Bučení 9">
+      <img src="../images/Web Symbols + GIF/Buceni-logo.svg" alt="Bučení 9">
+    </a>
+  </div>
+  <main>
+    <h1 class="artist-name">Judith Hamman</h1>
+    <p class="artist-bio">Bio text bude doplněn.</p>
+  </main>
+  <script>
+    document.documentElement.style.opacity = '1';
+    window.addEventListener('pageshow', function() { document.documentElement.style.opacity = '1'; });
+  </script>
+</body>
+</html>
