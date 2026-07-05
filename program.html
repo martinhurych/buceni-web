@@ -135,7 +135,7 @@
     .day-block {}
 
     .day-heading {
-      font-size: clamp(2.8rem, 7vw, 6rem);
+      font-size: clamp(2rem, 5vw, 4rem);
       font-weight: 900;
       letter-spacing: -0.04em;
       text-transform: uppercase;
@@ -148,20 +148,20 @@
 
     .day-heading span {
       color: var(--yellow);
-      font-size: 0.55em;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      vertical-align: middle;
-      margin-left: 0.3em;
+      font-size: 1em;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      vertical-align: baseline;
+      margin-left: 0.2em;
     }
 
     .event-row {
       display: grid;
-      grid-template-columns: 5.5em 6em 1fr;
+      grid-template-columns: 10em 6em 1fr;
       gap: 0 16px;
       align-items: baseline;
       padding: 10px 0;
-      border-bottom: 1px solid rgba(246, 219, 31, 0.12);
+      border-bottom: 1px solid rgba(246, 219, 31, 0.28);
     }
 
     .event-time {
@@ -170,6 +170,7 @@
       font-weight: 700;
       letter-spacing: -0.01em;
       white-space: nowrap;
+      font-variant-numeric: tabular-nums;
     }
 
     .event-venue {
@@ -255,7 +256,7 @@
       .menu-open .menu-logo { display: none; }
       .menu-open .menu-kravka { display: block; width: clamp(37px, 8.9vw, 48px); height: auto; margin-left: -25px; }
       .home-cta { width: clamp(92px, 22vw, 118px); }
-      .event-row { grid-template-columns: 4.5em 5em 1fr; gap: 0 10px; }
+      .event-row { grid-template-columns: 8em 5em 1fr; gap: 0 10px; }
     }
 
     @media (max-width: 640px) {
@@ -300,44 +301,44 @@
       <h2 class="day-heading">31.7.<span>Friday</span></h2>
 
       <div class="event-row">
-        <div class="event-time">19:00</div>
+        <div class="event-time">19:00 – 20:00</div>
         <div class="event-venue">cinema</div>
         <div class="event-artist">cera krisanaa</div>
       </div>
       <div class="event-row">
-        <div class="event-time">20:00</div>
+        <div class="event-time">20:00 – 21:00</div>
         <div class="event-venue">cinema</div>
         <div class="event-artist"><a href="artists/rodrigo-constanzo.html">Rodrigo Constanzo</a></div>
       </div>
       <div class="event-row">
-        <div class="event-time">21:00</div>
+        <div class="event-time">21:00 – 22:00</div>
         <div class="event-venue">cinema</div>
         <div class="event-artist"><a href="artists/oliver-torr-aggelos-paitakis.html">Oliver Torr &amp; Aggelos Paitakis</a></div>
       </div>
       <div class="event-row">
-        <div class="event-time">22:00</div>
+        <div class="event-time">22:00 – 03:00</div>
         <div class="event-venue">silo3</div>
-        <div class="event-artist"><a href="artists/alley-catts.html">Alley Catss</a> <span class="event-note">installation</span></div>
+        <div class="event-artist"><a href="artists/alley-catts.html">Máté Elod Janky aka Alley Catss</a> <span class="event-note">installation</span></div>
       </div>
       <div class="event-row">
-        <div class="event-time">22:00</div>
+        <div class="event-time">22:00 – 03:00</div>
         <div class="event-venue">ark</div>
-        <div class="event-artist"><a href="artists/thijs-jaeger-jesus-canuto-iglesias.html">Thijs Jæger &amp; Jesus Canuto Iglesias</a></div>
+        <div class="event-artist"><a href="artists/thijs-jaeger-jesus-canuto-iglesias.html">Thijs Jæger &amp; Jesus Canuto Iglesias</a> <span class="event-note">installation</span></div>
       </div>
       <div class="event-row">
-        <div class="event-time">23:00</div>
+        <div class="event-time">23:00 – 00:00</div>
         <div class="event-venue">tent</div>
         <div class="event-artist"><a href="artists/egg-meat.html">Egg Meat</a></div>
       </div>
       <div class="event-row">
-        <div class="event-time">0:00</div>
+        <div class="event-time">00:00 – 01:30</div>
         <div class="event-venue">tent</div>
         <div class="event-artist"><a href="artists/ziur.html">Ziúr</a> <span class="event-note">dj set</span></div>
       </div>
       <div class="event-row">
-        <div class="event-time">1:30</div>
+        <div class="event-time">01:30 – 03:00</div>
         <div class="event-venue">tent</div>
-        <div class="event-artist"><a href="artists/domizako.html">Domizako</a></div>
+        <div class="event-artist"><a href="artists/domizako.html">Domizako</a> <span class="event-note">dj set</span></div>
       </div>
     </div>
 
@@ -346,72 +347,72 @@
       <h2 class="day-heading">1.8.<span>Saturday</span></h2>
 
       <div class="event-row">
-        <div class="event-time">13:00</div>
+        <div class="event-time">13:00 – 15:00</div>
         <div class="event-venue">garden</div>
         <div class="event-artist"><a href="artists/sauroprdi.html">Sauroprdi</a> <span class="event-note">workshop</span></div>
       </div>
       <div class="event-row">
-        <div class="event-time">14:00</div>
+        <div class="event-time">14:00 – 03:00</div>
         <div class="event-venue">ark</div>
-        <div class="event-artist"><a href="artists/thijs-jaeger-jesus-canuto-iglesias.html">Thijs Jæger &amp; Jesus Canuto Iglesias</a> <span class="event-note">opening</span></div>
+        <div class="event-artist"><a href="artists/thijs-jaeger-jesus-canuto-iglesias.html">Thijs Jæger &amp; Jesus Canuto Iglesias</a> <span class="event-note">installation</span></div>
       </div>
       <div class="event-row">
-        <div class="event-time">14:00</div>
+        <div class="event-time">14:00 – 03:00</div>
         <div class="event-venue">silo3</div>
-        <div class="event-artist"><a href="artists/alley-catts.html">Alley Catss</a> <span class="event-note">installation</span></div>
+        <div class="event-artist"><a href="artists/alley-catts.html">Máté Elod Janky aka Alley Catss</a> <span class="event-note">installation</span></div>
       </div>
       <div class="event-row">
-        <div class="event-time">14:00</div>
+        <div class="event-time">14:00 – 22:00</div>
         <div class="event-venue">cinema</div>
         <div class="event-artist">Bat Cave Cinema</div>
       </div>
       <div class="event-row">
-        <div class="event-time">15:00</div>
+        <div class="event-time">15:00 – 16:00</div>
         <div class="event-venue">chapel</div>
         <div class="event-artist"><a href="artists/andrejs-poikans.html">Andrejs Poikāns</a></div>
       </div>
       <div class="event-row">
-        <div class="event-time">16:00</div>
+        <div class="event-time">16:00 – 17:00</div>
         <div class="event-venue">chapel</div>
         <div class="event-artist"><a href="artists/judith-hamman.html">Judith Hamann</a></div>
       </div>
       <div class="event-row">
-        <div class="event-time">18:00</div>
+        <div class="event-time">18:00 – 19:00</div>
         <div class="event-venue">tent</div>
         <div class="event-artist"><a href="artists/alley-catts.html">Alley Catss</a></div>
       </div>
       <div class="event-row">
-        <div class="event-time">19:00</div>
+        <div class="event-time">19:00 – 20:00</div>
         <div class="event-venue">tent</div>
         <div class="event-artist"><a href="artists/sineraw.html">Sineraw</a></div>
       </div>
       <div class="event-row">
-        <div class="event-time">20:00</div>
+        <div class="event-time">20:00 – 21:00</div>
         <div class="event-venue">tent</div>
         <div class="event-artist"><a href="artists/bj-holy.html">Bj Holy</a></div>
       </div>
       <div class="event-row">
-        <div class="event-time">21:00</div>
+        <div class="event-time">21:00 – 22:00</div>
         <div class="event-venue">tent</div>
         <div class="event-artist"><a href="artists/emer.html">emer</a></div>
       </div>
       <div class="event-row">
-        <div class="event-time">22:00</div>
+        <div class="event-time">22:00 – 23:00</div>
         <div class="event-venue">tent</div>
         <div class="event-artist"><a href="artists/ziur.html">Ziúr</a></div>
       </div>
       <div class="event-row">
-        <div class="event-time">23:00</div>
+        <div class="event-time">23:00 – 00:00</div>
         <div class="event-venue">tent</div>
         <div class="event-artist tba">TBA</div>
       </div>
       <div class="event-row">
-        <div class="event-time">0:00</div>
+        <div class="event-time">00:00 – 01:30</div>
         <div class="event-venue">tent</div>
         <div class="event-artist tba">TBA</div>
       </div>
       <div class="event-row">
-        <div class="event-time">1:30</div>
+        <div class="event-time">01:30 – 03:00</div>
         <div class="event-venue">tent</div>
         <div class="event-artist tba">TBA</div>
       </div>
