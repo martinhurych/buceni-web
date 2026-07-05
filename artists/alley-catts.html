@@ -63,11 +63,30 @@
     }
     .artist-bio {
       color: var(--white);
-      font-size: clamp(1.1rem, 1.8vw, 1.45rem);
+      font-size: clamp(1rem, 1.4vw, 1.22rem);
       font-weight: 400;
       line-height: 1.6;
-      max-width: 560px;
+      max-width: 640px;
+      margin-bottom: 28px;
     }
+    .artist-links {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .artist-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: clamp(1rem, 1.3vw, 1.15rem);
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      border-bottom: 2px solid rgba(246, 219, 31, 0.35);
+      padding-bottom: 4px;
+      transition: color 0.15s ease, border-color 0.15s ease;
+      align-self: flex-start;
+    }
+    .artist-links a:hover { color: var(--yellow); border-color: var(--yellow); }
     @media (max-width: 640px) { body { padding: 12px; } }
   </style>
 </head>
@@ -79,8 +98,15 @@
     </a>
   </div>
   <main>
-    <h1 class="artist-name">Alley Catts</h1>
-    <p class="artist-bio">Bio text bude doplněn.</p>
+    <h1 class="artist-name">Máté Elod Janky aka Alley Catss</h1>
+    <p class="artist-bio">
+      Máté Elod Janky is a Budapest-based composer and multimedia artist dealing with sound, site-specific installation, digitalia and internet world music. He is founder of Daddypower Records and Balloontooth Gallery. His longest-running music project, Alley Catss, observes and reinterprets archival cultural symbolism and medium-specific motifs, creating an ambient sonic world that leans into textural psychedelia through the illusory traces of dissociated references.
+    </p>
+    <div class="artist-links">
+      <a href="https://www.instagram.com/711f/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://elodjanky.com" target="_blank" rel="noopener">Website</a>
+      <a href="https://alleycatss.bandcamp.com" target="_blank" rel="noopener">Bandcamp</a>
+    </div>
   </main>
   <script>
     document.documentElement.style.opacity = '1';

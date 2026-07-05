@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/Web Symbols + GIF/Kravka.svg" type="image/svg+xml">
+  <title>Program — BUČENÍ 9</title>
+  <style>
+    :root {
+      --menu-bg: rgba(0, 0, 0, 0.88);
+      --menu-text: #f6db1f;
+      --menu-line: rgba(246, 219, 31, 0.32);
+      --white: #f1f1f1;
+      --yellow: #f6db1f;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    @view-transition { navigation: none; }
+    ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+    html { opacity: 0; overflow-y: scroll; scrollbar-gutter: stable; }
+    @font-face { font-family: 'Calibre'; src: url('Font/calibre/CalibreRegular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: block; }
+    @font-face { font-family: 'Calibre'; src: url('Font/calibre/CalibreRegularItalic.otf') format('opentype'); font-weight: 400; font-style: italic; font-display: block; }
+    @font-face { font-family: 'Calibre'; src: url('Font/calibre/CalibreMedium.otf') format('opentype'); font-weight: 500; font-display: block; }
+    @font-face { font-family: 'Calibre'; src: url('Font/calibre/CalibreSemibold.otf') format('opentype'); font-weight: 600; font-display: block; }
+    @font-face { font-family: 'Calibre'; src: url('Font/calibre/CalibreBold.otf') format('opentype'); font-weight: 700; font-display: block; }
+    @font-face { font-family: 'Calibre'; src: url('Font/calibre/CalibreBlack.otf') format('opentype'); font-weight: 900; font-display: block; }
+
+    body {
+      background: #b8bbba;
+      font-family: Calibre, 'Avenir Next', 'Segoe UI', Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 16px;
+      gap: 24px;
+    }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      position: relative;
+      z-index: 70;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      min-height: clamp(72px, 8.2vw, 94px);
+    }
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-left: auto;
+    }
+    .top-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      margin-top: 4px;
+    }
+    .top-nav a {
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: -0.015em;
+      font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+      line-height: 1;
+    }
+    .top-nav a:hover { color: var(--yellow); }
+    .top-nav a.active { color: var(--yellow); }
+    .home-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: clamp(102px, 10vw, 132px);
+      padding: 0;
+      text-decoration: none;
+      line-height: 0;
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+    }
+    .home-cta img { display: block; width: 100%; height: auto; }
+    .tickets {
+      display: inline-flex;
+      align-items: center;
+      width: clamp(133px, 13vw, 172px);
+      padding: 0;
+      text-decoration: none;
+      line-height: 0;
+      transition: transform 0.2s ease;
+    }
+    .tickets img { display: block; width: 100%; height: auto; }
+    .header-logo {
+      display: inline-flex;
+      width: clamp(70px, 7vw, 93px);
+      line-height: 0;
+    }
+    .header-logo img { display: block; width: 100%; height: auto; }
+    .header-kravka {
+      display: block;
+      width: clamp(35px, 3.5vw, 49px);
+      height: auto;
+      margin-left: -14px;
+    }
+    .menu-kravka { display: none; }
+    .menu-toggle {
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      color: var(--yellow);
+      font-family: inherit;
+      font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.015em;
+      padding: 0;
+      line-height: 1;
+    }
+
+    /* ── PROGRAM ── */
+    .program {
+      max-width: 860px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+    }
+
+    .day-block {}
+
+    .day-heading {
+      font-size: clamp(2.8rem, 7vw, 6rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 0.88;
+      margin-bottom: 24px;
+      border-bottom: 2px solid rgba(246, 219, 31, 0.3);
+      padding-bottom: 16px;
+    }
+
+    .day-heading span {
+      color: var(--yellow);
+      font-size: 0.55em;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      vertical-align: middle;
+      margin-left: 0.3em;
+    }
+
+    .event-row {
+      display: grid;
+      grid-template-columns: 5.5em 6em 1fr;
+      gap: 0 16px;
+      align-items: baseline;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(246, 219, 31, 0.12);
+    }
+
+    .event-time {
+      color: var(--yellow);
+      font-size: clamp(1rem, 1.4vw, 1.2rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+
+    .event-venue {
+      color: rgba(241, 241, 241, 0.45);
+      font-size: clamp(0.85rem, 1.1vw, 1rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .event-artist {
+      color: var(--white);
+      font-size: clamp(1.1rem, 1.8vw, 1.55rem);
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    .event-artist a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    .event-artist a:hover { color: var(--yellow); }
+
+    .event-artist.tba { opacity: 0.4; }
+
+    .event-note {
+      font-size: 0.62em;
+      font-weight: 400;
+      letter-spacing: 0em;
+      text-transform: none;
+      color: rgba(241, 241, 241, 0.55);
+      margin-left: 0.4em;
+      vertical-align: middle;
+    }
+
+    /* ── MENU PANEL ── */
+    .menu-panel {
+      position: fixed;
+      inset: 0;
+      background: #B8BBBA;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 60;
+    }
+    .menu-open .menu-panel { display: flex; }
+    .menu-panel nav { display: grid; gap: 0; width: 100%; text-align: center; }
+    .menu-panel a {
+      color: #F6DB1F;
+      text-decoration: none;
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      letter-spacing: -0.02em;
+      padding: 18px 0 10px;
+      border-bottom: 3px solid #A80053;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+    .menu-panel a:hover { opacity: 0.7; }
+    .scrim {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 55;
+    }
+    .menu-open .scrim { opacity: 1; pointer-events: auto; }
+
+    @media (max-width: 900px) {
+      .topbar { display: grid; grid-template-columns: 1fr auto 1fr; gap: 0; }
+      .topbar-actions { display: contents; }
+      .top-nav { display: none; }
+      .menu-toggle { display: inline-flex; justify-self: end; }
+      .tickets { width: clamp(92px, 22vw, 118px); }
+      .header-logo { display: none; }
+      .header-kravka { display: none; }
+      .menu-text { display: none; }
+      .menu-logo { display: block; width: clamp(58px, 14.1vw, 75px); height: auto; }
+      .menu-open .menu-logo { display: none; }
+      .menu-open .menu-kravka { display: block; width: clamp(37px, 8.9vw, 48px); height: auto; margin-left: -25px; }
+      .home-cta { width: clamp(92px, 22vw, 118px); }
+      .event-row { grid-template-columns: 4.5em 5em 1fr; gap: 0 10px; }
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 12px; }
+      .event-row { grid-template-columns: 4em 1fr; }
+      .event-venue { display: none; }
+      .event-artist { font-size: clamp(1rem, 4.5vw, 1.3rem); }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <a class="home-cta" href="index.html" aria-label="Domovska stranka">
+      <img src="images/Web Symbols + GIF/9HOME.svg" alt="Home">
+    </a>
+    <nav class="top-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="program.html" class="active">Program</a>
+      <a href="info.html" aria-label="Info" style="position:relative;top:-5px;"><img src="images/Web Symbols + GIF/Info.svg" alt="Info" style="display:block;width:clamp(92px,8.4vw,112px);height:auto;"></a>
+      <a href="archive.html">Archive</a>
+    </nav>
+    <div class="topbar-actions">
+      <a class="tickets" href="tickets.html" aria-label="Tickets">
+        <img src="images/Web Symbols + GIF/tickets.png" alt="Tickets">
+      </a>
+      <a class="header-logo" href="index.html" aria-label="Bučení 9">
+        <img src="images/Web Symbols + GIF/Buceni-logo.svg" alt="Bučení 9">
+      </a>
+      <img class="header-kravka" src="images/Web Symbols + GIF/Kravka.svg" alt="">
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <span class="menu-text">MENU</span>
+        <img class="menu-logo" src="images/Web Symbols + GIF/Buceni-logo.svg" alt="">
+        <img class="menu-kravka" src="images/Web Symbols + GIF/Kravka.svg" alt="">
+      </button>
+    </div>
+  </div>
+
+  <main class="program">
+
+    <!-- DAY 1 -->
+    <div class="day-block">
+      <h2 class="day-heading">31.7.<span>Friday</span></h2>
+
+      <div class="event-row">
+        <div class="event-time">19:00</div>
+        <div class="event-venue">cinema</div>
+        <div class="event-artist">cera krisanaa</div>
+      </div>
+      <div class="event-row">
+        <div class="event-time">20:00</div>
+        <div class="event-venue">cinema</div>
+        <div class="event-artist"><a href="artists/rodrigo-constanzo.html">Rodrigo Constanzo</a></div>
+      </div>
+      <div class="event-row">
+        <div class="event-time">21:00</div>
+        <div class="event-venue">cinema</div>
+        <div class="event-artist"><a href="artists/oliver-torr-aggelos-paitakis.html">Oliver Torr &amp; Aggelos Paitakis</a></div>
+      </div>
+      <div class="event-row">
+        <div class="event-time">22:00</div>
+        <div class="event-venue">silo3</div>
+        <div class="event-artist"><a href="artists/alley-catts.html">Alley Catss</a> <span class="event-note">installation</span></div>
+      </div>
+      <div class="event-row">
+        <div class="event-time">22:00</div>
+        <div class="event-venue">ark</div>
+        <div class="event-artist"><a href="artists/thijs-jaeger-jesus-canuto-iglesias.html">Thijs Jæger &amp; Jesus Canuto Iglesias</a></div>
+      </div>
+      <div class="event-row">
+        <div class="event-time">23:00</div>
+        <div class="event-venue">tent</div>
+        <div class="event-artist"><a href="artists/egg-meat.html">Egg Meat</a></div>
+      </div>
+      <div class="event-row">
+        <div class="event-time">0:00</div>
+        <div class="event-venue">tent</div>
+        <div class="event-artist"><a href="artists/ziur.html">Ziúr</a> <span class="event-note">dj set</span></div>
+      </div>
+      <div class="event-row">
+        <div class="event-time">1:30</div>
+        <div class="event-venue">tent</div>
+        <div class="event-artist"><a href="artists/domizako.html">Domizako</a></div>
+      </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="day-block">
+      <h2 class="day-heading">1.8.<span>Saturday</span></h2>
+
+      <div class="event-row">
+        <div class="event-time">13:00</div>
+        <div class="event-venue">garden</div>
+        <div class="event-artist"><a href="artists/sauroprdi.html">Sauroprdi</a> <span class="event-note">workshop</span></div>
+      </div>
+      <div class="event-row">
+        <div class="event-time">14:00</div>
+        <div class="event-venue">ark</div>
+        <div class="event-artist"><a href="artists/thijs-jaeger-jesus-canuto-iglesias.html">Thijs Jæger &amp; Jesus Canuto Iglesias</a> <span class="event-note">opening</span></div>
+      </div>
+      <div class="event-row">
+        <div class="event-time">14:00</div>
+        <div class="event-venue">silo3</div>
+        <div class="event-artist"><a href="artists/alley-catts.html">Alley Catss</a> <span class="event-note">installation</span></div>
+      </div>
+      <div class="event-row">
+        <div class="event-time">14:00</div>
+        <div class="event-venue">cinema</div>
+        <div class="event-artist">Bat Cave Cinema</div>
+      </div>
+      <div class="event-row">
+        <div class="event-time">15:00</div>
+        <div class="event-venue">chapel</div>
+        <div class="event-artist"><a href="artists/andrejs-poikans.html">Andrejs Poikāns</a></div>
+      </div>
+      <div class="event-row">
+        <div class="event-time">16:00</div>
+        <div class="event-venue">chapel</div>
+        <div class="event-artist"><a href="artists/judith-hamman.html">Judith Hamann</a></div>
+      </div>
+      <div class="event-row">
+        <div class="event-time">18:00</div>
+        <div class="event-venue">tent</div>
+        <div class="event-artist"><a href="artists/alley-catts.html">Alley Catss</a></div>
+      </div>
+      <div class="event-row">
+        <div class="event-time">19:00</div>
+        <div class="event-venue">tent</div>
+        <div class="event-artist"><a href="artists/sineraw.html">Sineraw</a></div>
+      </div>
+      <div class="event-row">
+        <div class="event-time">20:00</div>
+        <div class="event-venue">tent</div>
+        <div class="event-artist"><a href="artists/bj-holy.html">Bj Holy</a></div>
+      </div>
+      <div class="event-row">
+        <div class="event-time">21:00</div>
+        <div class="event-venue">tent</div>
+        <div class="event-artist"><a href="artists/emer.html">emer</a></div>
+      </div>
+      <div class="event-row">
+        <div class="event-time">22:00</div>
+        <div class="event-venue">tent</div>
+        <div class="event-artist"><a href="artists/ziur.html">Ziúr</a></div>
+      </div>
+      <div class="event-row">
+        <div class="event-time">23:00</div>
+        <div class="event-venue">tent</div>
+        <div class="event-artist tba">TBA</div>
+      </div>
+      <div class="event-row">
+        <div class="event-time">0:00</div>
+        <div class="event-venue">tent</div>
+        <div class="event-artist tba">TBA</div>
+      </div>
+      <div class="event-row">
+        <div class="event-time">1:30</div>
+        <div class="event-venue">tent</div>
+        <div class="event-artist tba">TBA</div>
+      </div>
+    </div>
+
+  </main>
+
+  <aside class="menu-panel" id="menuPanel" aria-hidden="true">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="program.html">Program</a>
+      <a href="archive.html">Archive</a>
+      <a href="info.html">Info</a>
+    </nav>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+
+  <script>
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    document.documentElement.style.opacity = '1';
+    window.addEventListener('pageshow', function() { document.documentElement.style.opacity = '1'; });
+
+    const body = document.body;
+    const toggle = document.getElementById('menuToggle');
+    const panel = document.getElementById('menuPanel');
+    const scrim = document.getElementById('scrim');
+
+    function setMenu(open) {
+      body.classList.toggle('menu-open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+    }
+
+    toggle.addEventListener('click', () => setMenu(!body.classList.contains('menu-open')));
+    scrim.addEventListener('click', () => setMenu(false));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+    panel.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => setMenu(false));
+    });
+  </script>
+</body>
+</html>

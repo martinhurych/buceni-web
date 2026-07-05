@@ -69,6 +69,42 @@
       max-width: 560px;
     }
     @media (max-width: 640px) { body { padding: 12px; } }
+
+    .artist-name {
+      font-size: clamp(2.2rem, 7vw, 6rem);
+      margin-bottom: 40px;
+    }
+
+    .artist-links {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .artist-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: clamp(1rem, 1.3vw, 1.15rem);
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      border-bottom: 2px solid rgba(246, 219, 31, 0.35);
+      padding-bottom: 4px;
+      transition: color 0.15s ease, border-color 0.15s ease;
+      align-self: flex-start;
+    }
+    .artist-links a:hover { color: var(--yellow); border-color: var(--yellow); }
+
+    .artist-section {
+      margin-bottom: 36px;
+    }
+    .artist-section-name {
+      color: var(--yellow);
+      font-size: clamp(1rem, 1.5vw, 1.3rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 <body>
@@ -79,8 +115,23 @@
     </a>
   </div>
   <main>
-    <h1 class="artist-name">Thijs Jaeger &amp; Jesus Canuto Iglesias</h1>
-    <p class="artist-bio">Bio text bude doplněn.</p>
+    <h1 class="artist-name">Thijs Jæger &amp; Jesus Canuto Iglesias</h1>
+
+    <div class="artist-section">
+      <p class="artist-section-name">Thijs Jæger</p>
+      <div class="artist-links">
+        <a href="https://thijsjaeger.com/" target="_blank" rel="noopener">Website</a>
+        <a href="https://www.instagram.com/tpik__________shakur/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+
+    <div class="artist-section">
+      <p class="artist-section-name">Jesus Canuto Iglesias</p>
+      <div class="artist-links">
+        <a href="https://www.jesuscanuto.com/" target="_blank" rel="noopener">Website</a>
+        <a href="https://www.instagram.com/jesuscanuto/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
   </main>
   <script>
     document.documentElement.style.opacity = '1';

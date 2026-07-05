@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="../images/Web Symbols + GIF/Kravka.svg" type="image/svg+xml">
-  <title>Judith Hamman — BUČENÍ 9</title>
+  <title>Judith Hamann — BUČENÍ 9</title>
   <style>
     :root { --yellow: #f6db1f; --white: #f1f1f1; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -15,6 +15,7 @@
     @font-face { font-family: 'Calibre'; src: url('../Font/calibre/CalibreRegularItalic.otf') format('opentype'); font-weight: 400; font-style: italic; font-display: block; }
     @font-face { font-family: 'Calibre'; src: url('../Font/calibre/CalibreBold.otf') format('opentype'); font-weight: 700; font-display: block; }
     @font-face { font-family: 'Calibre'; src: url('../Font/calibre/CalibreBlack.otf') format('opentype'); font-weight: 900; font-display: block; }
+
     body {
       background: #b8bbba;
       font-family: Calibre, 'Avenir Next', 'Segoe UI', Arial, sans-serif;
@@ -22,13 +23,14 @@
       display: flex;
       flex-direction: column;
       padding: 16px;
-      gap: 24px;
+      gap: 0;
     }
     .topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       min-height: clamp(56px, 7vw, 80px);
+      margin-bottom: 32px;
     }
     .back-link {
       color: var(--white);
@@ -42,33 +44,87 @@
     .back-link:hover { color: var(--yellow); }
     .header-logo { display: inline-flex; width: clamp(70px, 7vw, 93px); }
     .header-logo img { width: 100%; height: auto; display: block; }
+
     main {
       flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      max-width: 860px;
-      margin: 0 auto;
       width: 100%;
-      padding-top: clamp(24px, 5vw, 64px);
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto;
+      gap: 24px 40px;
     }
+
     .artist-name {
-      font-size: clamp(3.5rem, 12vw, 9rem);
+      grid-column: 1 / -1;
+      font-size: clamp(3rem, 8vw, 8.5rem);
       font-weight: 900;
       letter-spacing: -0.04em;
       text-transform: uppercase;
       color: var(--white);
-      line-height: 0.9;
-      margin-bottom: 40px;
+      line-height: 0.88;
     }
+
+    .artist-info {
+      grid-column: 1;
+      grid-row: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      padding-top: 4px;
+    }
+
     .artist-bio {
       color: var(--white);
-      font-size: clamp(1.1rem, 1.8vw, 1.45rem);
+      font-size: clamp(1rem, 1.4vw, 1.22rem);
       font-weight: 400;
       line-height: 1.6;
-      max-width: 560px;
     }
-    @media (max-width: 640px) { body { padding: 12px; } }
+
+    .artist-links {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .artist-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: clamp(1rem, 1.3vw, 1.15rem);
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      border-bottom: 2px solid rgba(246, 219, 31, 0.35);
+      padding-bottom: 4px;
+      transition: color 0.15s ease, border-color 0.15s ease;
+      align-self: flex-start;
+    }
+    .artist-links a:hover { color: var(--yellow); border-color: var(--yellow); }
+
+    .artist-video {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+    }
+    .artist-video iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    @media (max-width: 700px) {
+      body { padding: 12px; }
+      main { grid-template-columns: 1fr; }
+      .artist-name { grid-column: 1; }
+      .artist-photo { grid-column: 1; grid-row: 2; }
+      .artist-info  { grid-column: 1; grid-row: 3; }
+      .artist-video { grid-column: 1; grid-row: 4; }
+    }
   </style>
 </head>
 <body>
@@ -78,10 +134,30 @@
       <img src="../images/Web Symbols + GIF/Buceni-logo.svg" alt="Bučení 9">
     </a>
   </div>
+
   <main>
-    <h1 class="artist-name">Judith Hamman</h1>
-    <p class="artist-bio">Bio text bude doplněn.</p>
+    <h1 class="artist-name">Judith Hamann</h1>
+
+    <div class="artist-info">
+      <p class="artist-bio">
+        Judith Hamann is a composer/performer born in Narrm/Melbourne, and currently based in Berlin. Described as an "extraordinary Australian cellist" (the Guardian), and as a composer who "destroys the fiction of the musician who lives and works outside conventional parameters and puts in its place a series of compositions that are fundamentally humane" (WIRE), their work encompasses performance, electro-acoustic composition, site specific generative work, and micro-tonal systems in a process based creative practice.
+      </p>
+      <div class="artist-links">
+        <a href="http://judith-hamann.com" target="_blank" rel="noopener">Website</a>
+        <a href="https://judithhamann.bandcamp.com/" target="_blank" rel="noopener">Bandcamp</a>
+      </div>
+    </div>
+
+    <div class="artist-video">
+      <iframe
+        src="https://player.vimeo.com/video/1112585712?h=ae06088399"
+        title="Judith Hamann"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
   </main>
+
   <script>
     document.documentElement.style.opacity = '1';
     window.addEventListener('pageshow', function() { document.documentElement.style.opacity = '1'; });
