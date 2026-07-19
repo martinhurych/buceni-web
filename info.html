@@ -912,6 +912,17 @@
     let lightboxGalleryIndex = 0;
     let activeLightboxItems = galleryItems;
 
+    const preloadCache = {};
+    function preloadImage(src) {
+      if (preloadCache[src]) return;
+      const img = new Image();
+      img.src = src;
+      preloadCache[src] = img;
+    }
+
+    // Preload first 3 images immediately
+    galleryItems.slice(0, 3).forEach(item => preloadImage(item.src));
+
     function setLeadImage(index) {
       if (!galleryItems.length) return;
       const safeIndex = (index + galleryItems.length) % galleryItems.length;
@@ -922,6 +933,10 @@
       leadImage.src = item.src;
       leadImage.alt = item.alt;
       leadImage.style.objectPosition = item.leadPosition || 'center center';
+
+      // Preload neighbours in background
+      preloadImage(galleryItems[(safeIndex + 1) % galleryItems.length].src);
+      preloadImage(galleryItems[(safeIndex - 1 + galleryItems.length) % galleryItems.length].src);
     }
 
     function setLightboxImage(index) {

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -66,7 +66,7 @@
     }
 
     .artist-photo { grid-column: 1; grid-row: 2; }
-    .artist-photo img { width: 100%; height: auto; display: block; object-fit: cover; }
+    .artist-photo img { width: 100%; height: auto; display: block; object-fit: cover; aspect-ratio: 4/5; }
 
     .artist-info {
       grid-column: 2;
@@ -142,7 +142,7 @@
     <h1 class="artist-name">emer</h1>
 
     <div class="artist-photo">
-      <img src="emer/1080x1350_01.jpg" alt="emer">
+      <img src="emer/1080x1350_01.jpg" alt="emer" fetchpriority="high">
     </div>
 
     <div class="artist-info">
