@@ -48,18 +48,42 @@
     main {
       flex: 1;
       width: 100%;
-      max-width: 860px;
+      max-width: 960px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 24px 40px;
     }
 
     .artist-name {
+      grid-column: 1 / -1;
       font-size: clamp(3.5rem, 10vw, 8.5rem);
       font-weight: 900;
       letter-spacing: -0.04em;
       text-transform: uppercase;
       color: var(--white);
       line-height: 0.88;
-      margin-bottom: 32px;
+    }
+
+    .artist-photo {
+      grid-column: 1;
+      grid-row: 2;
+    }
+    .artist-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .artist-info {
+      grid-column: 2;
+      grid-row: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      padding-top: 4px;
     }
 
     .artist-bio {
@@ -67,8 +91,6 @@
       font-size: clamp(1rem, 1.4vw, 1.22rem);
       font-weight: 400;
       line-height: 1.6;
-      max-width: 640px;
-      margin-bottom: 28px;
     }
     .artist-bio em { font-style: italic; }
 
@@ -91,7 +113,13 @@
     }
     .artist-links a:hover { color: var(--yellow); border-color: var(--yellow); }
 
-    @media (max-width: 640px) { body { padding: 12px; } }
+    @media (max-width: 700px) {
+      body { padding: 12px; }
+      main { grid-template-columns: 1fr; }
+      .artist-name { grid-column: 1; }
+      .artist-photo { grid-column: 1; grid-row: 2; }
+      .artist-info  { grid-column: 1; grid-row: 3; }
+    }
   </style>
 </head>
 <body>
@@ -104,11 +132,18 @@
 
   <main>
     <h1 class="artist-name">cera</h1>
-    <p class="artist-bio">
-      cera is the musical project of audiovisual artist Kristýna Popirecinii. Working with field recordings, synthesizers, and her own voice, she builds soundscapes where ambient blends with noise, revealing a sensitive perspective that explores the relationship between outer and inner worlds. The intense sonic experience carries within it a process of coming to terms with grief, perhaps even a path toward letting go of it, alongside a sense of playfulness. Shifting attention becomes a compositional technique here. She is part of the favu label collective, where sound art meets fragments of pop production. In 2025, she released the EP <em>knew it a year before</em> on SoundCloud. In summer 2026, under the favu label, she is releasing her second EP, <em>Tajemství ostrovů</em>, inspired by the work of Czech singer Jana Uriel Kratochvílová, on which she loosely covers her songs and combines them with her own production.
-    </p>
-    <div class="artist-links">
-      <a href="https://ctjcera.bandcamp.com/" target="_blank" rel="noopener">Bandcamp</a>
+
+    <div class="artist-photo">
+      <img src="cera/1080x1350_01.jpg" alt="cera">
+    </div>
+
+    <div class="artist-info">
+      <p class="artist-bio">
+        cera is the musical project of audiovisual artist Kristýna Popirecinii. Working with field recordings, synthesizers, and her own voice, she builds soundscapes where ambient blends with noise, revealing a sensitive perspective that explores the relationship between outer and inner worlds. The intense sonic experience carries within it a process of coming to terms with grief, perhaps even a path toward letting go of it, alongside a sense of playfulness. Shifting attention becomes a compositional technique here. She is part of the favu label collective, where sound art meets fragments of pop production. In 2025, she released the EP <em>knew it a year before</em> on SoundCloud. In summer 2026, under the favu label, she is releasing her second EP, <em>Tajemství ostrovů</em>, inspired by the work of Czech singer Jana Uriel Kratochvílová, on which she loosely covers her songs and combines them with her own production.
+      </p>
+      <div class="artist-links">
+        <a href="https://ctjcera.bandcamp.com/" target="_blank" rel="noopener">Bandcamp</a>
+      </div>
     </div>
   </main>
 

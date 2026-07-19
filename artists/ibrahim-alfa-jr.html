@@ -15,6 +15,7 @@
     @font-face { font-family: 'Calibre'; src: url('../Font/calibre/CalibreRegularItalic.otf') format('opentype'); font-weight: 400; font-style: italic; font-display: block; }
     @font-face { font-family: 'Calibre'; src: url('../Font/calibre/CalibreBold.otf') format('opentype'); font-weight: 700; font-display: block; }
     @font-face { font-family: 'Calibre'; src: url('../Font/calibre/CalibreBlack.otf') format('opentype'); font-weight: 900; font-display: block; }
+
     body {
       background: #b8bbba;
       font-family: Calibre, 'Avenir Next', 'Segoe UI', Arial, sans-serif;
@@ -43,21 +44,51 @@
     .back-link:hover { color: var(--yellow); }
     .header-logo { display: inline-flex; width: clamp(70px, 7vw, 93px); }
     .header-logo img { width: 100%; height: auto; display: block; }
-    main { flex: 1; width: 100%; max-width: 860px; margin: 0 auto; }
+
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto;
+      gap: 24px 40px;
+    }
+
     .artist-name {
+      grid-column: 1 / -1;
       font-size: clamp(2.8rem, 8vw, 8rem);
       font-weight: 900;
       letter-spacing: -0.04em;
       text-transform: uppercase;
       color: var(--white);
       line-height: 0.88;
-      margin-bottom: 32px;
     }
+
+    .artist-photo { grid-column: 1; grid-row: 2; }
+    .artist-photo img { width: 100%; height: auto; display: block; object-fit: cover; }
+
+    .artist-info {
+      grid-column: 2;
+      grid-row: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      padding-top: 4px;
+    }
+
+    .artist-bio {
+      color: var(--white);
+      font-size: clamp(1rem, 1.4vw, 1.22rem);
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
     .artist-links {
       display: flex;
       flex-direction: column;
       gap: 6px;
-      margin-bottom: 40px;
     }
     .artist-links a {
       color: var(--white);
@@ -72,10 +103,12 @@
       align-self: flex-start;
     }
     .artist-links a:hover { color: var(--yellow); border-color: var(--yellow); }
+
     .artist-video {
+      grid-column: 1 / -1;
+      grid-row: 3;
       position: relative;
       width: 100%;
-      max-width: 860px;
       padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
@@ -86,7 +119,15 @@
       width: 100%; height: 100%;
       border: none;
     }
-    @media (max-width: 640px) { body { padding: 12px; } }
+
+    @media (max-width: 700px) {
+      body { padding: 12px; }
+      main { grid-template-columns: 1fr; }
+      .artist-name { grid-column: 1; }
+      .artist-photo { grid-column: 1; grid-row: 2; }
+      .artist-info  { grid-column: 1; grid-row: 3; }
+      .artist-video { grid-column: 1; grid-row: 4; }
+    }
   </style>
 </head>
 <body>
@@ -96,12 +137,25 @@
       <img src="../images/Web Symbols + GIF/Buceni-logo.svg" alt="Bučení 9">
     </a>
   </div>
+
   <main>
     <h1 class="artist-name">Ibrahim Alfa Jr</h1>
-    <div class="artist-links">
-      <a href="https://www.instagram.com/ibrahimalfajunior/" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://iyaka.bandcamp.com/album/infinite-black-inside" target="_blank" rel="noopener">Bandcamp</a>
+
+    <div class="artist-photo">
+      <img src="ibrahim alfa jr/1080x1350_01.jpg" alt="Ibrahim Alfa Jr">
     </div>
+
+    <div class="artist-info">
+      <p class="artist-bio">
+        Visionary producer Ibrahim Alfa Jr, who's been traversing the rave's farthest fringes since the late '90s, returns with his most focused and concise set to date, an anthology of undulating, bass-heavy experiments that surveys techno and its distorted history, printing fractured pulses and cybernetic synths over vanishing snapshots of jazz, funk, trip-hop, broken beat, dub and ambient music. It's a body of work that coalesced during a difficult time for Alfa. After returning to Brighton and sobriety in 2022, he was diagnosed with a pulmonary embolism, subsequently suffering two debilitating heart attacks. With his immune system compromised, isolation was the only option, so for months on end Alfa devoted each waking hour to his art, recording samples, building digital synths and effects and meticulously sequencing some of his waviest, most experimental material to date. Over this period he finished over 500 tracks, writing impulsively and constantly challenging himself. "There was nothing to hold me back," he explains. "I just had music, I didn't know if I would see the next day."
+      </p>
+      <div class="artist-links">
+        <a href="https://www.instagram.com/ibrahimalfajunior/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://iyaka.bandcamp.com/" target="_blank" rel="noopener">Bandcamp</a>
+        <a href="https://www.theguardian.com/music/2026/jun/08/ibrahim-alfa-jr-british-techno-infinite-black-inside" target="_blank" rel="noopener">The Guardian</a>
+      </div>
+    </div>
+
     <div class="artist-video">
       <iframe
         src="https://www.youtube.com/embed/Oez936FjSs0"
@@ -111,6 +165,7 @@
       </iframe>
     </div>
   </main>
+
   <script>
     document.documentElement.style.opacity = '1';
     window.addEventListener('pageshow', function() { document.documentElement.style.opacity = '1'; });

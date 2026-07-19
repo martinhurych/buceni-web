@@ -48,18 +48,42 @@
     main {
       flex: 1;
       width: 100%;
-      max-width: 860px;
+      max-width: 960px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 24px 40px;
     }
 
     .artist-name {
+      grid-column: 1 / -1;
       font-size: clamp(3rem, 9vw, 8rem);
       font-weight: 900;
       letter-spacing: -0.04em;
       text-transform: uppercase;
       color: var(--white);
       line-height: 0.88;
-      margin-bottom: 8px;
+    }
+
+    .artist-photo {
+      grid-column: 1;
+      grid-row: 2;
+    }
+    .artist-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .artist-info {
+      grid-column: 2;
+      grid-row: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-top: 4px;
     }
 
     .artist-subtitle {
@@ -68,7 +92,6 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: -0.01em;
-      margin-bottom: 32px;
     }
 
     .artist-bio {
@@ -76,8 +99,6 @@
       font-size: clamp(1rem, 1.4vw, 1.22rem);
       font-weight: 400;
       line-height: 1.6;
-      max-width: 640px;
-      margin-bottom: 12px;
     }
 
     .artist-meta {
@@ -86,12 +107,43 @@
       font-weight: 400;
       font-style: italic;
       line-height: 1.5;
-      max-width: 640px;
-      margin-bottom: 32px;
       opacity: 0.75;
     }
 
-    @media (max-width: 640px) { body { padding: 12px; } }
+    .artist-section { display: flex; flex-direction: column; gap: 6px; }
+    .artist-section-name {
+      color: var(--yellow);
+      font-size: clamp(1rem, 1.5vw, 1.3rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+    .artist-links {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .artist-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: clamp(1rem, 1.3vw, 1.15rem);
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      border-bottom: 2px solid rgba(246, 219, 31, 0.35);
+      padding-bottom: 4px;
+      transition: color 0.15s ease, border-color 0.15s ease;
+      align-self: flex-start;
+    }
+    .artist-links a:hover { color: var(--yellow); border-color: var(--yellow); }
+
+    @media (max-width: 700px) {
+      body { padding: 12px; }
+      main { grid-template-columns: 1fr; }
+      .artist-name { grid-column: 1; }
+      .artist-photo { grid-column: 1; grid-row: 2; }
+      .artist-info  { grid-column: 1; grid-row: 3; }
+    }
   </style>
 </head>
 <body>
@@ -104,16 +156,34 @@
 
   <main>
     <h1 class="artist-name">Sauroprdi</h1>
-    <p class="artist-subtitle">Pavel Ryška &amp; Jan Šrámek</p>
 
-    <p class="artist-bio">
-      Sauroprd Anatomy — a programme for the children's book <em>Sauroprdi</em> (Paseka / FaVU VUT, 2026). Suitable for children aged 6 and up. Duration: 45 minutes + 60-minute dinosaur drawing workshop.
-    </p>
+    <div class="artist-photo">
+      <img src="sauroprdi/1080x1350_01.jpg" alt="Sauroprdi">
+    </div>
 
-    <p class="artist-bio">
-      Pavel Ryška and Jan Šrámek present a richly illustrated book that blends fantasy with scientific fact. Children can look forward to a fun lecture about the biggest farts in alternative prehistory and a collaborative animation in which they will — with their own hands and gastroliths — break down tough vegetarian fare. They will discover how sauropords produced gas in their intestines and stomachs, what they used it for, and why it ended up being bad news for the entire planet. The first five participants receive plump heroes from the book, complete with acoustic effect :)
-    </p>
+    <div class="artist-info">
+      <p class="artist-subtitle">Pavel Ryška &amp; Jan Šrámek</p>
 
+      <p class="artist-bio">
+        Sauroprd Anatomy — a programme for the children’s book <em>Sauroprdi</em> (Paseka / FaVU VUT, 2026). Suitable for children aged 6 and up. Duration: 45 minutes + 60-minute dinosaur drawing workshop.
+      </p>
+
+      <p class="artist-bio">
+        Pavel Ryška and Jan Šrámek present a richly illustrated book that blends fantasy with scientific fact. Children can look forward to a fun lecture about the biggest farts in alternative prehistory and a collaborative animation in which they will — with their own hands and gastroliths — break down tough vegetarian fare. They will discover how sauropords produced gas in their intestines and stomachs, what they used it for, and why it ended up being bad news for the entire planet. The first five participants receive plump heroes from the book, complete with acoustic effect :)
+      </p>
+      <div class="artist-section">
+        <p class="artist-section-name">Pavel Ryška</p>
+        <div class="artist-links">
+          <a href="https://www.instagram.com/padesatky/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+      <div class="artist-section">
+        <p class="artist-section-name">Jan Šrámek</p>
+        <div class="artist-links">
+          <a href="https://www.instagram.com/jan_sramek_kolouch/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
   </main>
 
   <script>

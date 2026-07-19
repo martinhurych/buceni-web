@@ -43,21 +43,53 @@
     .back-link:hover { color: var(--yellow); }
     .header-logo { display: inline-flex; width: clamp(70px, 7vw, 93px); }
     .header-logo img { width: 100%; height: auto; display: block; }
-    main { flex: 1; width: 100%; max-width: 860px; margin: 0 auto; }
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto;
+      gap: 24px 40px;
+    }
     .artist-name {
+      grid-column: 1 / -1;
       font-size: clamp(3.5rem, 10vw, 8.5rem);
       font-weight: 900;
       letter-spacing: -0.04em;
       text-transform: uppercase;
       color: var(--white);
       line-height: 0.88;
-      margin-bottom: 32px;
+    }
+    .artist-photo {
+      grid-column: 1;
+      grid-row: 2;
+    }
+    .artist-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .artist-info {
+      grid-column: 2;
+      grid-row: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      padding-top: 4px;
+    }
+    .artist-bio {
+      color: var(--white);
+      font-size: clamp(1rem, 1.4vw, 1.22rem);
+      font-weight: 400;
+      line-height: 1.6;
     }
     .artist-links {
       display: flex;
       flex-direction: column;
       gap: 6px;
-      margin-bottom: 40px;
     }
     .artist-links a {
       color: var(--white);
@@ -73,6 +105,8 @@
     }
     .artist-links a:hover { color: var(--yellow); border-color: var(--yellow); }
     .artist-video {
+      grid-column: 1 / -1;
+      grid-row: 3;
       position: relative;
       width: 100%;
       padding-bottom: 56.25%;
@@ -85,7 +119,14 @@
       width: 100%; height: 100%;
       border: none;
     }
-    @media (max-width: 640px) { body { padding: 12px; } }
+    @media (max-width: 700px) {
+      body { padding: 12px; }
+      main { grid-template-columns: 1fr; }
+      .artist-name { grid-column: 1; }
+      .artist-photo { grid-column: 1; grid-row: 2; }
+      .artist-info  { grid-column: 1; grid-row: 3; }
+      .artist-video { grid-column: 1; grid-row: 4; }
+    }
   </style>
 </head>
 <body>
@@ -97,9 +138,17 @@
   </div>
   <main>
     <h1 class="artist-name">Babydoom</h1>
-    <div class="artist-links">
-      <a href="https://www.instagram.com/babydoom8_/" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://aplife.bandcamp.com/album/doomlife-012" target="_blank" rel="noopener">Bandcamp</a>
+    <div class="artist-photo">
+      <img src="babydoom/1080x1350_01 (1).jpg" alt="Babydoom">
+    </div>
+    <div class="artist-info">
+      <p class="artist-bio">
+        Babydoom is a rising UK rapper known for his contributions to the world music scene, blending styles like UK rap and grime into other genres. He is widely rated as a highly promising voice in the UK scene. His music—a distinctive blend of Experimental Hip Hop, Road Rap, Dancehall, and Neo-Grime—has captured attention for its raw, reflective edge. Fans and critics particularly praise the authenticity and rhythmic delivery of his projects.
+      </p>
+      <div class="artist-links">
+        <a href="https://www.instagram.com/babydoom8_/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://aplife.bandcamp.com/album/doomlife-012" target="_blank" rel="noopener">Bandcamp</a>
+      </div>
     </div>
     <div class="artist-video">
       <iframe

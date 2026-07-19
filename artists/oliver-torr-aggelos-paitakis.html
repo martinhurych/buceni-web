@@ -22,13 +22,14 @@
       display: flex;
       flex-direction: column;
       padding: 16px;
-      gap: 24px;
+      gap: 0;
     }
     .topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       min-height: clamp(56px, 7vw, 80px);
+      margin-bottom: 32px;
     }
     .back-link {
       color: var(--white);
@@ -44,38 +45,54 @@
     .header-logo img { width: 100%; height: auto; display: block; }
     main {
       flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      max-width: 860px;
-      margin: 0 auto;
       width: 100%;
-      padding-top: clamp(24px, 5vw, 64px);
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 24px 40px;
     }
     .artist-name {
+      grid-column: 1 / -1;
       font-size: clamp(2.2rem, 7vw, 6rem);
       font-weight: 900;
       letter-spacing: -0.04em;
       text-transform: uppercase;
       color: var(--white);
-      line-height: 0.9;
-      margin-bottom: 40px;
+      line-height: 0.88;
+    }
+    .artist-photo {
+      grid-column: 1;
+      grid-row: 2;
+    }
+    .artist-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .artist-info {
+      grid-column: 2;
+      grid-row: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      padding-top: 4px;
     }
     .artist-bio {
       color: var(--white);
-      font-size: clamp(1.1rem, 1.8vw, 1.45rem);
+      font-size: clamp(1rem, 1.4vw, 1.22rem);
       font-weight: 400;
       line-height: 1.6;
-      max-width: 560px;
     }
-    .artist-section { margin-bottom: 36px; }
+    .artist-section { display: flex; flex-direction: column; gap: 6px; }
     .artist-section-name {
       color: var(--yellow);
       font-size: clamp(1rem, 1.5vw, 1.3rem);
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: -0.01em;
-      margin-bottom: 10px;
     }
     .artist-links {
       display: flex;
@@ -95,7 +112,13 @@
       align-self: flex-start;
     }
     .artist-links a:hover { color: var(--yellow); border-color: var(--yellow); }
-    @media (max-width: 640px) { body { padding: 12px; } }
+    @media (max-width: 700px) {
+      body { padding: 12px; }
+      main { grid-template-columns: 1fr; }
+      .artist-name { grid-column: 1; }
+      .artist-photo { grid-column: 1; grid-row: 2; }
+      .artist-info  { grid-column: 1; grid-row: 3; }
+    }
   </style>
 </head>
 <body>
@@ -108,17 +131,25 @@
   <main>
     <h1 class="artist-name">Oliver Torr &amp; Aggelos Paitakis</h1>
 
-    <div class="artist-section">
-      <p class="artist-section-name">Oliver Torr</p>
-      <div class="artist-links">
-        <a href="https://www.instagram.com/oliver_torr/" target="_blank" rel="noopener">Instagram</a>
-      </div>
+    <div class="artist-photo">
+      <img src="oliver torr/1080x1350_01.jpg" alt="Oliver Torr & Aggelos Paitakis">
     </div>
 
-    <div class="artist-section">
-      <p class="artist-section-name">Aggelos Paitakis</p>
-      <div class="artist-links">
-        <a href="https://www.instagram.com/aggelos.paitakis/" target="_blank" rel="noopener">Instagram</a>
+    <div class="artist-info">
+      <p class="artist-bio">
+        Oliver Torr and Aggelos Paitakis present a live audiovisual transmission built around their collaboration. The performance operates through live camera feeds, unstable visual routing and improvised sound. Image and audio are signals under pressure: received, interrupted, delayed, re-recorded and pushed back into the room. Nothing is fully fixed. The work behaves like a partial broadcast from another version of the same event. Torr performs released material alongside new sonic research. Paitakis works through live visual systems informed by his practice across time-based media, microscopy, VFX and moving-image production. Together they try to construct melting instability by interconnecting their performance systems. Made for a cinema setting, the piece uses the screen not as a surface for illustration, but as a receiver. The room becomes a live circuit. Sound searches for an image and the image searches for its source. The audience enters during the signal, not at its beginning.
+      </p>
+      <div class="artist-section">
+        <p class="artist-section-name">Oliver Torr</p>
+        <div class="artist-links">
+          <a href="https://www.instagram.com/oliver_torr/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+      <div class="artist-section">
+        <p class="artist-section-name">Aggelos Paitakis</p>
+        <div class="artist-links">
+          <a href="https://www.instagram.com/aggelos.paitakis/" target="_blank" rel="noopener">Instagram</a>
+        </div>
       </div>
     </div>
   </main>

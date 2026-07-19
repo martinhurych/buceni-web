@@ -66,8 +66,11 @@
       line-height: 0.88;
     }
 
+    .artist-photo { grid-column: 1; grid-row: 2; }
+    .artist-photo img { width: 100%; height: auto; display: block; object-fit: cover; }
+
     .artist-info {
-      grid-column: 1;
+      grid-column: 2;
       grid-row: 2;
       display: flex;
       flex-direction: column;
@@ -137,6 +140,10 @@
 
   <main>
     <h1 class="artist-name">Judith Hamann</h1>
+
+    <div class="artist-photo">
+      <img src="judith hamann/1080x1350_01.jpg" alt="Judith Hamann">
+    </div>
 
     <div class="artist-info">
       <p class="artist-bio">

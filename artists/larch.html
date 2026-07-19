@@ -48,18 +48,42 @@
     main {
       flex: 1;
       width: 100%;
-      max-width: 860px;
+      max-width: 960px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 24px 40px;
     }
 
     .artist-name {
+      grid-column: 1 / -1;
       font-size: clamp(3.5rem, 10vw, 8.5rem);
       font-weight: 900;
       letter-spacing: -0.04em;
       text-transform: uppercase;
       color: var(--white);
       line-height: 0.88;
-      margin-bottom: 32px;
+    }
+
+    .artist-photo {
+      grid-column: 1;
+      grid-row: 2;
+    }
+    .artist-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .artist-info {
+      grid-column: 2;
+      grid-row: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      padding-top: 4px;
     }
 
     .artist-bio {
@@ -67,8 +91,6 @@
       font-size: clamp(1rem, 1.4vw, 1.22rem);
       font-weight: 400;
       line-height: 1.6;
-      max-width: 640px;
-      margin-bottom: 28px;
     }
 
     .artist-links {
@@ -90,7 +112,13 @@
     }
     .artist-links a:hover { color: var(--yellow); border-color: var(--yellow); }
 
-    @media (max-width: 640px) { body { padding: 12px; } }
+    @media (max-width: 700px) {
+      body { padding: 12px; }
+      main { grid-template-columns: 1fr; }
+      .artist-name { grid-column: 1; }
+      .artist-photo { grid-column: 1; grid-row: 2; }
+      .artist-info  { grid-column: 1; grid-row: 3; }
+    }
   </style>
 </head>
 <body>
@@ -103,11 +131,19 @@
 
   <main>
     <h1 class="artist-name">Larch</h1>
-    <p class="artist-bio">
-      Larch, resident at Radio Obscura. His sets are based on hours of surfing the nooks and crannies of the internet, the sounds of diasporas and urban landscapes. His sets combine an interest in a variety of genres and the search for sonic connections within them, from dancehall, baltimore club, uk funky, techno to drill and footwork. Broken drums, strange melodies and endless loops.
-    </p>
-    <div class="artist-links">
-      <a href="https://soundcloud.com/vdvmstill" target="_blank" rel="noopener">SoundCloud</a>
+
+    <div class="artist-photo">
+      <img src="larch/larch.jpg" alt="Larch">
+    </div>
+
+    <div class="artist-info">
+      <p class="artist-bio">
+        Larch, resident at Radio Obscura. His sets are based on hours of surfing the nooks and crannies of the internet, the sounds of diasporas and urban landscapes. His sets combine an interest in a variety of genres and the search for sonic connections within them, from dancehall, baltimore club, uk funky, techno to drill and footwork. Broken drums, strange melodies and endless loops.
+      </p>
+      <div class="artist-links">
+        <a href="https://www.instagram.com/larch2305/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://soundcloud.com/vdvmstill" target="_blank" rel="noopener">SoundCloud</a>
+      </div>
     </div>
   </main>
 

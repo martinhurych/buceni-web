@@ -43,15 +43,48 @@
     .back-link:hover { color: var(--yellow); }
     .header-logo { display: inline-flex; width: clamp(70px, 7vw, 93px); }
     .header-logo img { width: 100%; height: auto; display: block; }
-    main { flex: 1; width: 100%; max-width: 860px; margin: 0 auto; }
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 24px 40px;
+    }
     .artist-name {
+      grid-column: 1 / -1;
       font-size: clamp(2.8rem, 8vw, 7.5rem);
       font-weight: 900;
       letter-spacing: -0.04em;
       text-transform: uppercase;
       color: var(--white);
       line-height: 0.88;
-      margin-bottom: 32px;
+    }
+    .artist-photo {
+      grid-column: 1;
+      grid-row: 2;
+    }
+    .artist-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .artist-info {
+      grid-column: 2;
+      grid-row: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      padding-top: 4px;
+    }
+    .artist-bio {
+      color: var(--white);
+      font-size: clamp(1rem, 1.4vw, 1.22rem);
+      font-weight: 400;
+      line-height: 1.6;
     }
     .artist-links {
       display: flex;
@@ -71,7 +104,13 @@
       align-self: flex-start;
     }
     .artist-links a:hover { color: var(--yellow); border-color: var(--yellow); }
-    @media (max-width: 640px) { body { padding: 12px; } }
+    @media (max-width: 700px) {
+      body { padding: 12px; }
+      main { grid-template-columns: 1fr; }
+      .artist-name { grid-column: 1; }
+      .artist-photo { grid-column: 1; grid-row: 2; }
+      .artist-info  { grid-column: 1; grid-row: 3; }
+    }
   </style>
 </head>
 <body>
@@ -83,8 +122,16 @@
   </div>
   <main>
     <h1 class="artist-name">Bat Cave Cinema</h1>
-    <div class="artist-links">
-      <a href="https://www.instagram.com/atelier_video_favu/" target="_blank" rel="noopener">Instagram</a>
+    <div class="artist-photo">
+      <img src="bcc/1080x1350_01-BCC.jpg" alt="Bat Cave Cinema">
+    </div>
+    <div class="artist-info">
+      <p class="artist-bio">
+        Bat Cave Cinema (BCC) is a series of screening programs organized by the Video Studio (FaVU, Brno University of Technology). Bat Cave Global is the studio’s research platform, which was established as part of the “miráže” project. The premiere of a new video, created during field research in Calabria, will be complemented by a selection of videos by students, alumni, and guests. The BCC presents Bat Cave Global program will be screened at the Bučení festival at Kino Lubná.
+      </p>
+      <div class="artist-links">
+        <a href="https://www.instagram.com/atelier_video_favu/" target="_blank" rel="noopener">Instagram</a>
+      </div>
     </div>
   </main>
   <script>
