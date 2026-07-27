@@ -43,29 +43,46 @@
     .back-link:hover { color: var(--yellow); }
     .header-logo { display: inline-flex; width: clamp(70px, 7vw, 93px); }
     .header-logo img { width: 100%; height: auto; display: block; }
-    main { flex: 1; width: 100%; max-width: 860px; margin: 0 auto; }
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto;
+      gap: 24px 40px;
+    }
     .artist-name {
+      grid-column: 1 / -1;
       font-size: clamp(3.5rem, 10vw, 8.5rem);
       font-weight: 900;
       letter-spacing: -0.04em;
       text-transform: uppercase;
       color: var(--white);
       line-height: 0.88;
-      margin-bottom: 28px;
+    }
+    .artist-photo { grid-column: 1; grid-row: 2; }
+    .artist-photo img { width: 100%; height: auto; display: block; object-fit: cover; aspect-ratio: 4/5; }
+    .artist-info {
+      grid-column: 2;
+      grid-row: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      padding-top: 4px;
     }
     .artist-bio {
       color: var(--white);
       font-size: clamp(1rem, 1.4vw, 1.22rem);
       font-weight: 400;
       line-height: 1.6;
-      max-width: 640px;
-      margin-bottom: 28px;
     }
+    .artist-bio em { font-style: italic; }
     .artist-links {
       display: flex;
       flex-direction: column;
       gap: 6px;
-      margin-bottom: 40px;
     }
     .artist-links a {
       color: var(--white);
@@ -81,6 +98,8 @@
     }
     .artist-links a:hover { color: var(--yellow); border-color: var(--yellow); }
     .artist-video {
+      grid-column: 1 / -1;
+      grid-row: 3;
       position: relative;
       width: 100%;
       padding-bottom: 56.25%;
@@ -93,7 +112,14 @@
       width: 100%; height: 100%;
       border: none;
     }
-    @media (max-width: 640px) { body { padding: 12px; } }
+    @media (max-width: 700px) {
+      body { padding: 12px; }
+      main { grid-template-columns: 1fr; }
+      .artist-name { grid-column: 1; }
+      .artist-photo { grid-column: 1; grid-row: 2; }
+      .artist-info  { grid-column: 1; grid-row: 3; }
+      .artist-video { grid-column: 1; grid-row: 4; }
+    }
   </style>
 </head>
 <body>
@@ -105,12 +131,15 @@
   </div>
   <main>
     <h1 class="artist-name">Domizako</h1>
-    <p class="artist-bio">
-      domizako is a Slovak DJ and producer based in Prague, resident of FUCHS2, co-founder of Motherspells FINTA, weaving global bass, up-tempo beats and deconstructed vocals into sets that are equal parts sexy — spots between tracks, not defined by genre but by vibe, energy and pure late-night chaos. As part of the Gravity Network roster 2024, domizako embraces artistic independence and creative freedom, continually pushing her sound into fresh territory while building a distinctive profile across local and regional stages. She has steadily grown her presence with a series of releases and performances that highlight her evolving style, appearing alongside notable acts and contributing to standout lineups such as Lunchmeat and Pohoda festivals.
-    </p>
-    <div class="artist-links">
-      <a href="https://www.instagram.com/domizako/" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://domizako.bandcamp.com/" target="_blank" rel="noopener">Bandcamp</a>
+    <div class="artist-photo">
+      <img src="domizako/1080x1350_01 (1).jpg" alt="Domizako" fetchpriority="high">
+    </div>
+    <div class="artist-info">
+      <p class="artist-bio">domizako is a Slovak DJ and producer based in Prague, resident of FUCHS2, co-founder of Motherspells FINTA, weaving global bass, up-tempo beats and deconstructed vocals into sets that are equal parts sexy — spots between tracks, not defined by genre but by vibe, energy and pure late-night chaos. As part of the Gravity Network roster 2024, domizako embraces artistic independence and creative freedom, continually pushing her sound into fresh territory while building a distinctive profile across local and regional stages. She has steadily grown her presence with a series of releases and performances that highlight her evolving style, appearing alongside notable acts and contributing to standout lineups such as Lunchmeat and Pohoda festivals.</p>
+      <div class="artist-links">
+        <a href="https://www.instagram.com/domizako/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://domizako.bandcamp.com/" target="_blank" rel="noopener">Bandcamp</a>
+      </div>
     </div>
     <div class="artist-video">
       <iframe

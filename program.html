@@ -129,7 +129,7 @@
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 56px;
+      gap: 0;
     }
 
     .day-block {}
@@ -208,6 +208,24 @@
       color: rgba(241, 241, 241, 0.55);
       margin-left: 0.4em;
       vertical-align: middle;
+    }
+
+    /* ── TIMETABLE IMAGES ── */
+    .timetable-img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: 0;
+    }
+
+    .timetable-img-full {
+      display: block;
+      width: 100%;
+      max-width: 860px;
+      height: auto;
+      border-radius: 4px;
+      margin-bottom: 8px;
     }
 
     /* ── MENU PANEL ── */
@@ -298,124 +316,12 @@
 
     <!-- DAY 1 -->
     <div class="day-block">
-      <h2 class="day-heading">31.7.<span>Friday</span></h2>
-
-      <div class="event-row">
-        <div class="event-time">19:00 – 20:00</div>
-        <div class="event-venue">cinema</div>
-        <div class="event-artist"><a href="artists/cera.html">cera krisanaa</a></div>
-      </div>
-      <div class="event-row">
-        <div class="event-time">20:00 – 21:00</div>
-        <div class="event-venue">cinema</div>
-        <div class="event-artist"><a href="artists/rodrigo-constanzo.html">Rodrigo Constanzo</a></div>
-      </div>
-      <div class="event-row">
-        <div class="event-time">21:00 – 22:00</div>
-        <div class="event-venue">cinema</div>
-        <div class="event-artist"><a href="artists/oliver-torr-aggelos-paitakis.html">Oliver Torr &amp; Aggelos Paitakis</a></div>
-      </div>
-      <div class="event-row">
-        <div class="event-time">22:00 – 03:00</div>
-        <div class="event-venue">silo3</div>
-        <div class="event-artist"><a href="artists/alley-catts.html">Alley Catss</a> <span class="event-note">installation</span></div>
-      </div>
-      <div class="event-row">
-        <div class="event-time">22:00 – 03:00</div>
-        <div class="event-venue">ark</div>
-        <div class="event-artist"><a href="artists/thijs-jaeger-jesus-canuto-iglesias.html">Thijs Jæger &amp; Jesus Canuto Iglesias</a> <span class="event-note">installation</span></div>
-      </div>
-      <div class="event-row">
-        <div class="event-time">23:00 – 00:00</div>
-        <div class="event-venue">tent</div>
-        <div class="event-artist"><a href="artists/egg-meat.html">Egg Meat</a></div>
-      </div>
-      <div class="event-row">
-        <div class="event-time">00:00 – 01:30</div>
-        <div class="event-venue">tent</div>
-        <div class="event-artist"><a href="artists/ziur.html">Ziúr</a> <span class="event-note">dj set</span></div>
-      </div>
-      <div class="event-row">
-        <div class="event-time">01:30 – 03:00</div>
-        <div class="event-venue">tent</div>
-        <div class="event-artist"><a href="artists/domizako.html">Domizako</a> <span class="event-note">dj set</span></div>
-      </div>
+      <img class="timetable-img" src="timetable/1080x1350_Friday.jpg" alt="Friday timetable">
     </div>
 
     <!-- DAY 2 -->
     <div class="day-block">
-      <h2 class="day-heading">1.8.<span>Saturday</span></h2>
-
-      <div class="event-row">
-        <div class="event-time">13:00 – 15:00</div>
-        <div class="event-venue">garden</div>
-        <div class="event-artist"><a href="artists/sauroprdi.html">Sauroprdi</a> <span class="event-note">workshop</span></div>
-      </div>
-      <div class="event-row">
-        <div class="event-time">14:00 – 03:00</div>
-        <div class="event-venue">ark</div>
-        <div class="event-artist"><a href="artists/thijs-jaeger-jesus-canuto-iglesias.html">Thijs Jæger &amp; Jesus Canuto Iglesias</a> <span class="event-note">installation</span></div>
-      </div>
-      <div class="event-row">
-        <div class="event-time">14:00 – 03:00</div>
-        <div class="event-venue">silo3</div>
-        <div class="event-artist"><a href="artists/alley-catts.html">Alley Catss</a> <span class="event-note">installation</span></div>
-      </div>
-      <div class="event-row">
-        <div class="event-time">14:00 – 22:00</div>
-        <div class="event-venue">cinema</div>
-        <div class="event-artist">Bat Cave Cinema</div>
-      </div>
-      <div class="event-row">
-        <div class="event-time">15:00 – 16:00</div>
-        <div class="event-venue">chapel</div>
-        <div class="event-artist"><a href="artists/andrejs-poikans.html">Andrejs Poikāns</a></div>
-      </div>
-      <div class="event-row">
-        <div class="event-time">16:00 – 17:00</div>
-        <div class="event-venue">chapel</div>
-        <div class="event-artist"><a href="artists/judith-hamman.html">Judith Hamann</a></div>
-      </div>
-      <div class="event-row">
-        <div class="event-time">18:00 – 19:00</div>
-        <div class="event-venue">tent</div>
-        <div class="event-artist"><a href="artists/alley-catts.html">Alley Catss</a></div>
-      </div>
-      <div class="event-row">
-        <div class="event-time">19:00 – 20:00</div>
-        <div class="event-venue">tent</div>
-        <div class="event-artist"><a href="artists/sineraw.html">Sineraw</a></div>
-      </div>
-      <div class="event-row">
-        <div class="event-time">20:00 – 21:00</div>
-        <div class="event-venue">tent</div>
-        <div class="event-artist"><a href="artists/bj-holy.html">Bj Holy</a></div>
-      </div>
-      <div class="event-row">
-        <div class="event-time">21:00 – 22:00</div>
-        <div class="event-venue">tent</div>
-        <div class="event-artist"><a href="artists/emer.html">emer</a></div>
-      </div>
-      <div class="event-row">
-        <div class="event-time">22:00 – 23:00</div>
-        <div class="event-venue">tent</div>
-        <div class="event-artist"><a href="artists/ziur.html">Ziúr</a></div>
-      </div>
-      <div class="event-row">
-        <div class="event-time">23:00 – 00:00</div>
-        <div class="event-venue">tent</div>
-        <div class="event-artist tba">TBA</div>
-      </div>
-      <div class="event-row">
-        <div class="event-time">00:00 – 01:30</div>
-        <div class="event-venue">tent</div>
-        <div class="event-artist tba">TBA</div>
-      </div>
-      <div class="event-row">
-        <div class="event-time">01:30 – 03:00</div>
-        <div class="event-venue">tent</div>
-        <div class="event-artist tba">TBA</div>
-      </div>
+      <img class="timetable-img" src="timetable/1080x1350_Saturday.jpg" alt="Saturday timetable">
     </div>
 
   </main>
@@ -433,7 +339,7 @@
   <script>
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     document.documentElement.style.opacity = '1';
-    window.addEventListener('pageshow', function() { document.documentElement.style.opacity = '1'; });
+    window.addEventListener('pageshow', function(e) { document.documentElement.style.opacity = '1'; if (e.persisted) window.location.reload(); });
 
     const body = document.body;
     const toggle = document.getElementById('menuToggle');
